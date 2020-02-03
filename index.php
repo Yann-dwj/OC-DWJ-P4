@@ -1,8 +1,7 @@
 <?php
 
-require('controller/IndexController.php');
-
 use \Controller\IndexController;
+use \Controller\AdminController;
 
 class Router
 {
@@ -38,6 +37,9 @@ class Router
             case "/contact" :
                 (new IndexController())->contact();
             break;
+
+            case "/admin/login" :
+                (new AdminController())->login();
             /*
             default :
                 (new IndexController())->home();
@@ -50,17 +52,19 @@ class Router
 
 function myAutoloader($class)
 {
-    if (file_exists('core/'.$class.'.php'))
+    $file_position = strrpos($class, '\\');
+    if($file_position === false)
     {
-        include 'controller/'.$class.'.php';
+        return;
     }
-    elseif (file_exists('model/'.$class.'.php'))
+
+    $ds = DIRECTORY_SEPARATOR;
+    $path = str_replace('\\', $ds, strtolower(substr($class, 0, $file_position + 1)));
+    $file = $path . substr($class, $file_position + 1) . '.php';
+
+    if(file_exists($file))
     {
-        include 'model/'.$class.'.php';
-    }
-    elseif (file_exists('core/'.$class.'.php'))
-    {
-        include 'model/'.$class.'.php';
+        require_once($file);
     }
 }
 
