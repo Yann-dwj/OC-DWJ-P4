@@ -38,6 +38,14 @@ class Router
                 (new IndexController())->contact();
             break;
 
+            case "/registration" :
+                (new IndexController())->registration();
+            break;
+
+            case "/login" :
+                (new IndexController())->login();
+            break;
+
             case "/admin/login" :
                 (new AdminController())->login();
             /*
