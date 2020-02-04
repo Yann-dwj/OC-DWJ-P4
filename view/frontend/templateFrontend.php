@@ -23,7 +23,7 @@
     <!-- Favicon -->
     <link rel="icon" href="" /> <!-- TO DO -->
     <!-- Frameworks -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet" />
     <!-- CSS -->
@@ -65,7 +65,12 @@
             
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">JEAN FORTEROCHE</li> 
+                        <li class="nav-item">JEAN FORTEROCHE</li>
+                        <li class="nav-item">
+                            <a href="http://localhost:8888/login">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
