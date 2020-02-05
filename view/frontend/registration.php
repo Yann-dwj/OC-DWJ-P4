@@ -3,7 +3,58 @@
 
 <?php ob_start(); ?>
 
-<h1 class="text-center">S'inscrire</h1>
+<div class="container my-5 py-5 z-depth-1">
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-md-6">
+                <!-- Material form login -->
+                <div class="card">
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!-- Default form register -->
+                        <form class="text-center" action="#!">
+
+                            <h1 class="h4 mb-4">Inscription</h1>
+
+                            <!-- Pseudo -->
+                            <input type="text" id="defaultRegisterFormPseudo" class="form-control mb-4" placeholder="Pseudo" required>
+
+                            <!-- E-mail -->
+                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
+
+                            <!-- Password -->
+                            <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Mot de passe" required
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                            minimum de 8 caractères
+                            </small>
+                            
+                            <!-- Password Confirm -->
+                            <input type="password" id="defaultRegisterFormPasswordConfirm" class="form-control" placeholder="Confirmation du mot de passe" required
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                            <small id="defaultRegisterFormPasswordConfirmHelpBlock" class="form-text text-muted mb-4">
+                            
+                            </small>
+                            
+                            <!-- Sign up button -->
+                            <button class="btn btn-info my-4 btn-block" type="submit">S'inscrire</button>
+                            
+                        </form>
+                        <!-- Default form register -->
+                    </div>
+                    <!--Card content-->
+                </div>
+                <!-- Material form login -->
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </section>
+    <!--Section: Content-->
+</div>
 
 <?php $content = ob_get_clean(); ?>
 
