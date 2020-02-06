@@ -15,32 +15,32 @@
                     <!--Card content-->
                     <div class="card-body">
                         <!-- Default form register -->
-                        <form class="text-center" action="#!">
+                        <form class="text-center" action="http://localhost:8888/login" method="post">
 
                             <h1 class="h4 mb-4">Inscription</h1>
 
                             <!-- Pseudo -->
-                            <input type="text" id="defaultRegisterFormPseudo" class="form-control mb-4" placeholder="Pseudo" required>
+                            <input type="text" name="pseudo" id="defaultRegisterFormPseudo" class="form-control mb-4" placeholder="Pseudo" required>
 
                             <!-- E-mail -->
-                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
+                            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
 
                             <!-- Password -->
-                            <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Mot de passe" required
+                            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Mot de passe" required
                             aria-describedby="defaultRegisterFormPasswordHelpBlock">
                             <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                             minimum de 8 caractères
                             </small>
                             
                             <!-- Password Confirm -->
-                            <input type="password" id="defaultRegisterFormPasswordConfirm" class="form-control" placeholder="Confirmation du mot de passe" required
+                            <input type="password" name="passwordConfirm" id="defaultRegisterFormPasswordConfirm" class="form-control" placeholder="Confirmation du mot de passe" required
                             aria-describedby="defaultRegisterFormPasswordHelpBlock">
                             <small id="defaultRegisterFormPasswordConfirmHelpBlock" class="form-text text-muted mb-4">
                             
                             </small>
                             
                             <!-- Sign up button -->
-                            <button class="btn btn-info my-4 btn-block" type="submit">S'inscrire</button>
+                            <button class="btn btn-info my-4 btn-block" type="submit" name="submit">S'inscrire</button>
                             
                         </form>
                         <!-- Default form register -->
