@@ -44,14 +44,11 @@ class Router
 
             case "/login" :
                 (new IndexController())->login();
+                (new AdminController())->registration();
             break;
 
             case "/admin/login" :
                 (new AdminController())->login();
-            /*
-            default :
-                (new IndexController())->home();
-            */
         }
     }
 }
