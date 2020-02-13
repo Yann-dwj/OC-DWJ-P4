@@ -1,7 +1,6 @@
+<?php session_start() ?>
 <?php $title = 'Contact'; ?>
 <?php $metaDescription = 'Prenez contact avec l\'auteur de romans d\'aventures à succèss Jean Forteroche'; ?>
-
-<?php ob_start(); ?>
 
 <div class="container z-depth-1 my-5 px-0">
     <!--Section: Content-->
@@ -61,7 +60,3 @@
     </section>
     <!--Section: Content-->
 </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('templateFrontend.php') ?>

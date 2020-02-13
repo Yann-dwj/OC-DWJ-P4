@@ -38,7 +38,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect" href="http://localhost:8888/">
-                    <img src="https://mdbootstrap.com/wp-content/uploads/2018/06/logo-mdb-jquery-small.png" alt="Logo">
+                    JEAN FORTEROCHE
                 </a>
 
                 <!-- Collapse -->
@@ -64,14 +64,45 @@
                     </ul>
             
                     <!-- Right -->
+<?php 
+if (isset($_SESSION) && array_key_exists('pseudo', $_SESSION))
+{
+?>
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">JEAN FORTEROCHE</li>
-                        <li class="nav-item">
-                            <a href="http://localhost:8888/login">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <li class="nav-item mr-2">
+                            <i class="fa fa-user"></i>
+                            <span class="ml-2"><?= $_SESSION['pseudo'] ?></span>
+                        </li>
+                        <li class="nav-item mr-2">|</li>
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/logout">
+                                <span class="mr-1">déconnexion</span>
+                                <i class="fa fa-sign-out"></i>
                             </a>
                         </li>
                     </ul>
+<?php
+}
+else{
+?>
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/login">
+                                <i class="fa fa-user"></i>
+                                <span class="ml-2">connexion</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mr-2">|</li>
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/registration">
+                                <span class="mr-1">inscription</span>
+                                <i class="fa fa-sign-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+<?php
+}
+?>
                 </div>
             </div>
         </nav>

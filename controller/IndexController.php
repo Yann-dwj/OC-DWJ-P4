@@ -2,30 +2,144 @@
 
 namespace Controller;
 
-class IndexController
+use \Model\User;
+use \Model\UserManager;
+
+class IndexController 
 {
     public function home()
     {
-        require('view/frontend/home.php');
+        $view = new ViewController;
+        $view->render('home', 'templateFrontend', [
+            'message' => 'coucou'
+        ]);
     }
 
     public function blog()
     {
-        require('view/frontend/blog.php');
+        $view = new ViewController;
+        $view->render('blog', 'templateFrontend');
     }
 
     public function contact()
     {
-        require('view/frontend/contact.php');
+        $view = new ViewController;
+        $view->render('contact', 'templateFrontend');
     }
 
     public function registration()
     {
-        require('view/frontend/registration.php');
+        $error = null;
+        $success = null;
+
+        if (isset($_POST['submit'])) // Si le formulaire est envoyé
+        {
+            $userManager = new UserManager;
+
+            if (empty($userManager->checkPseudo($_POST['pseudo']))) // Si le pseudo n'est pas en BDD
+            {
+                if (empty($userManager->checkEmail($_POST['email'])))
+                {
+                    if (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_POST['email'])) // Si le mail à le bon format
+                    {
+                        if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W){8,12}#', $_POST['password']))
+                        {
+                            if ($_POST['password'] == $_POST['passwordConfirm']) // Si les deux mots de passe sont identiques
+                            {
+                                $passHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                                $user = new User([
+                                    'pseudo' => $_POST['pseudo'],
+                                    'email' => $_POST['email'],
+                                    'pass' => $passHash
+                                ]);
+                    
+                                $userManager->addUser($user);
+
+                                $success = 'Félicitation, votre compte à bien été enregistré !'; 
+                            }
+                            else
+                            {
+                                $error = 'Les mots de passes ne correspondent pas';
+                            }  
+                        }
+                        else
+                        {
+                            $error = 'Mot de passe invalide, veuillez respecter la chaine demandée';
+                        }
+                    }
+                    else
+                    {
+                        $error = 'Format de mail incorrect';
+                    }
+                }
+                else
+                {
+                    $error = 'Il existe déja un compte pour cette adresse e-mail';
+                }   
+            }
+            else
+            {
+                $error = 'Ce pseudo n\'est pas disponnible';
+            }
+        }
+
+        $view = new ViewController;
+        $view->render('registration', 'templateFrontend', [
+            'error' => $error,
+            'success' => $success
+        ]);
     }
 
     public function login()
     {
-        require('view/frontend/login.php');
+        $error = null;
+
+        if (isset($_POST['submit']))
+        {
+            $userManager = new UserManager;
+            $user = $userManager->getUser($_POST['email']);
+
+            if ($user)
+            {
+                $passVerify = password_verify($_POST['password'], $user->pass());
+
+                if ($passVerify)
+                {
+                    session_start();
+                    $_SESSION['pseudo'] = $user->pseudo();
+                    header('Location: /');
+                }
+                else
+                {
+                    $error = 'Erreur d\'identifiant';
+                }
+            }
+            else
+            {
+                $error = 'Erreur d\'identifiant';
+            }
+        }
+
+        $view = new ViewController;
+        $view->render('login', 'templateFrontend', [
+            'error' => $error
+        ]);
+    }
+
+    public function logout()
+    {
+        if (isset($_POST))
+        {
+            if (isset($_POST['submit']))
+            {
+                session_start();
+                unset($_SESSION);
+                session_destroy();
+                header('Location: /');
+            }
+        }
+        $view = new ViewController;
+        $view->render('logout', 'templateFrontend');
     }
 }
