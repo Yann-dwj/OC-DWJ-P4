@@ -5,7 +5,7 @@
 <div class="container z-depth-1 my-5 px-0">
     <!--Section: Content-->
     <section class="my-md-5" 
-    style="background-image: url('../public/images/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg'); background-size: cover; background-position: center center;">
+    style="background-image: url('http://localhost:8888/public/images/bryan-goff--eDpBjt6UL0-unsplash.jpg'); background-size: cover; background-position: center center;">
 
         <div class="rgba-black-strong rounded p-5">
 
