@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php $title = 'Accueil'; ?>
 <?php $metaDescription = 'Billet Simple pour l\'Alaska, le nouveau roman de Jean Forteroche à découvrir en ligne'; ?>
 

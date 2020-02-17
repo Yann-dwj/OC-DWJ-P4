@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php $title = 'Déconnexion'; ?>
 <?php $metaDescription = 'Déconnectez-vous de votre espace membre entre deux visites sur le Blog, Billet Simple pour l\'Alaska'; ?>
 

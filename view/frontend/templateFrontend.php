@@ -62,6 +62,16 @@
                         <li class="nav-item">
                         <a class="nav-link waves-effect" href="http://localhost:8888/contact">Contact</a>
                         </li>
+<?php 
+if ($this->isAdmin())
+{
+?>
+                        <li class="nav-item">
+                        <a class="nav-link waves-effect" href="http://localhost:8888/admin">Administration</a>
+                        </li>
+<?php
+}
+?>
                     </ul>
             
                     <!-- Right -->

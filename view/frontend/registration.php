@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php $title = 'Inscription'; ?>
 <?php $metaDescription = 'Inscrivez-vous en tant que membre du blog de Jean Forteroche et accedez aux fonctionnalités du site'; ?>
 

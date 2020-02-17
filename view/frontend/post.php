@@ -1,6 +1,5 @@
-<?php session_start() ?>
-<?php $title = ''; ?>
-<?php $metaDescription = 'Découvrez l\'épisode ' . $title .' et entrez un peu plus dans l\'aventure de John McKinley'; ?>
+<?php $title = $vars['post']->title(); ?>
+<?php $metaDescription = 'Découvrez l\'épisode ' . $vars['post']->title() .' du nouveau roman de Jean Forteroche, Billet Simple pour l\'Alaska'; ?>
 
 <div class="container mt-5">
     <!--Section: Content-->
@@ -41,59 +40,64 @@
 
     <!--Section: Comments-->
     <section class="dark-grey-text">
-        <div class="card card-comments mb-3 wow fadeIn mt-5">
+        <div class="card my-5">
             <div class="card-header font-weight-bold">Commentaire(s)</div>
             <div class="card-body">
-
+<?php
+foreach ($vars['comments'] as $var['comment'])
+{
+?>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Clement, le 12/03/2019</p>
-                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
-                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
+                        <p>
+                            <span>
+                                <?= $var['comment']->author(); ?>
+                                <?= $var['comment']->commentDate(); ?>
+                            </span>
                         </p>
-                        <hr class="mb-5 mt-4">
+                        <p><?= $var['comment']->comment(); ?></p>
+                        <hr>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Clement, le 12/03/2019</p>
-                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
-                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
-                        </p>
-                        <hr class="mb-5 mt-4">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Clement, le 12/03/2019</p>
-                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
-                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
-                        </p>
-                        <hr class="mb-5 mt-4">
-                    </div>
-                </div>
-
+<?php
+}
+?>
                 <div class="card border-light">
                     <div class="card-footer">
                         <!-- Default form reply -->
-                        <form>
+                        <form method="POST">
+                            <div class="form-group">
+<?php 
+if (isset($_SESSION) && array_key_exists('pseudo', $_SESSION))
+{
+?>        
+                                <i class="fa fa-user"></i>
+                                <span class="ml-2"><?= $_SESSION['pseudo'] ?></span>
+                                <span class="">|</span>
+                                <a href="http://localhost:8888/logout">
+                                    <span class="mr-1">déconnexion</span>
+                                    <i class="fa fa-sign-out"></i>
+                                </a>
+<?php
+}
+else{
+?>
+                                <a href="http://localhost:8888/login">
+                                    <i class="fa fa-user"></i>
+                                    <span class="ml-2">connexion</span>
+                                </a>
+<?php
+}
+// @todo mettre le formulaire dans le if
+?>
+                            </div>
                             <!-- Comment -->
                             <div class="form-group">
                             <label for="replyFormComment">Votre commentaire</label>
-                            <textarea class="form-control" id="replyFormComment" rows="5"></textarea>
+                            <textarea class="form-control" name="comment" id="replyFormComment" rows="5"></textarea>
                             </div>
-                            <!-- Name -->
-                            <label for="replyFormName">Votre nom</label>
-                            <input type="email" id="replyFormName" class="form-control">
-                            <br>
-                            <!-- Email -->
-                            <label for="replyFormEmail">votre e-mail</label>
-                            <input type="email" id="replyFormEmail" class="form-control">
-
                             <div class="text-center mt-4">
-                            <button class="btn btn-info btn-md" type="submit">Post</button>
+                            <button class="btn btn-info btn-md" type="submit" name="submit">envoyer</button>
                             </div>
                         </form>
                         <!-- Default form reply -->

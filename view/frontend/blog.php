@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php $title = 'Blog'; ?>
 <?php $metaDescription = 'Retrouvez tous les épisodes de "Billet Simple pour l\'Alaska" et rejoignez John McKinley dans ces aventures palpitantes'; ?>
 
@@ -14,7 +13,7 @@ foreach ($vars['posts'] as $var['post'])
 ?>
             <!-- Grid column -->
             <div class="col-lg-4 col-md-6 mb-5">
-                <a href="post?action=post&id=<?= $var['post']->id(); ?>">
+                <a href="post?id=<?= $var['post']->id(); ?>">
                     <!-- Card -->
                     <div class="card hoverable">
                         <!-- Card image -->

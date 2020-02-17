@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php $title = 'Contact'; ?>
 <?php $metaDescription = 'Prenez contact avec l\'auteur de romans d\'aventures à succèss Jean Forteroche'; ?>
 
