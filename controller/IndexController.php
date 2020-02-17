@@ -2,10 +2,14 @@
 
 namespace Controller;
 
+use \Model\Comment;
+use \Model\CommentManager;
+use \Model\Post;
+use \Model\PostManager;
 use \Model\User;
 use \Model\UserManager;
 
-class IndexController 
+class IndexController extends Controller
 {
     public function home()
     {
@@ -17,8 +21,49 @@ class IndexController
 
     public function blog()
     {
+        $postManager = new PostManager;
+        $posts = $postManager->getPosts();
+
         $view = new ViewController;
-        $view->render('blog', 'templateFrontend');
+        $view->render('blog', 'templateFrontend', [
+            'posts' => $posts
+        ]);
+    }
+
+    public function post()
+    {
+
+        
+        if(isset($_GET['id']) && $_GET['id'] > 0 )
+        {
+            $postManager = new PostManager;
+            $post = $postManager->getPost($_GET['id']);
+    
+            $commentManager = new CommentManager;
+            $comments = $commentManager->getComments($_GET['id']);
+        }
+        else
+        {
+            throw new \Throwable('aucun identifiant de billet envoyé');
+        }
+        
+        if (isset($_POST) && isset($_POST['comment']))
+        {
+        
+            $comment = new Comment([
+                'postId' => $_GET['id'],
+                'author' => $_SESSION['pseudo'],
+                'comment' => $_POST['comment']
+            ]);
+
+            $commentManager->addComment($comment);
+        }
+
+        $view = new ViewController;
+        $view->render('post', 'templateFrontend', [
+            'post' => $post,
+            'comments' => $comments
+        ]);
     }
 
     public function contact()
@@ -108,6 +153,7 @@ class IndexController
                 {
                     session_start();
                     $_SESSION['pseudo'] = $user->pseudo();
+                    $_SESSION['isAdmin'] = $user->isAdmin();
                     header('Location: /');
                 }
                 else

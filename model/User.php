@@ -11,6 +11,7 @@ class User
     private $_pass;
     private $_email;
     private $_registrationDate;
+    private $_isAdmin;
 
     public function __construct(array $data)
     {
@@ -57,6 +58,11 @@ class User
         return $this->_registrationDate;
     }
 
+    public function isAdmin()
+    {
+        return $this->_isAdmin;
+    }
+
     // Setters
 
     public function setId($id)
@@ -82,5 +88,10 @@ class User
     public function setRegistrationDate($registrationDate)
     {
         $this->_registrationDate = $registrationDate;
+    }
+
+    public function setIsAdmin($isAdmin)
+    {
+        $this->_isAdmin = $isAdmin;
     }
 }

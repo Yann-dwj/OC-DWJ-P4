@@ -35,7 +35,7 @@ class UserManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $query = $db->prepare('INSERT INTO users(pseudo, pass, email, registration_date) VALUES(:pseudo, :pass, :email, NOW())');
+        $query = $db->prepare('INSERT INTO users(pseudo, pass, email, registrationDate) VALUES(:pseudo, :pass, :email, NOW())');
         $query->execute([
             'pseudo' => $user->pseudo(),
             'pass' => $user->pass(),
