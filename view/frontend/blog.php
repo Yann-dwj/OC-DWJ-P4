@@ -14,28 +14,27 @@ foreach ($vars['posts'] as $var['post'])
 ?>
             <!-- Grid column -->
             <div class="col-lg-4 col-md-6 mb-5">
-                <!-- Card -->
-                <div class="card hoverable">
-                    <!-- Card image -->
-                    <img class="card-img-top" src="<?= $var['post']->imageUrl(); ?>" alt="Card image cap">
-                    <!-- Card content -->
-                    <div class="card-body">
-                        <!-- Title -->
-                        <h5><a href="#!" class="black-text"><?= $var['post']->title(); ?></a></h5>
-                        <small>
-                            <span class=""><?= $var['post']->creationDate(); ?></span>
-                            <span class=""><?= $var['post']->author(); ?></span>
-                        </small>
-                        
-                        <!-- Text -->
-                        <p class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 255) . '...'; ?></p>
-                                    
-                        <button type="button" class="btn btn-link text-primary p-0 mx-0">
-                            <a href="post?action=post&id=<?= $var['post']->id(); ?>">lire la suite<i class="fa fa-angle-right ml-2"></i></a>
-                        </button>
+                <a href="post?action=post&id=<?= $var['post']->id(); ?>">
+                    <!-- Card -->
+                    <div class="card hoverable">
+                        <!-- Card image -->
+                        <img class="card-img-top" src="<?= $var['post']->imageUrl(); ?>" alt="Card image cap">
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <h5 class="black-text"><?= $var['post']->title(); ?></h5>
+                            <!-- Text -->
+                            <p class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 255) . '...'; ?></p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row black-text">
+                                <small class="col-sm-6 text-left"><?= $var['post']->creationDate(); ?></small>
+                                <small class="col-sm-6 text-right"><?= $var['post']->author(); ?></small>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Card -->
+                    <!-- Card -->
+                </a>
             </div>
             <!-- Grid column -->
 <?php

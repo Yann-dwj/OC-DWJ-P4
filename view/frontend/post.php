@@ -4,54 +4,102 @@
 
 <div class="container mt-5">
     <!--Section: Content-->
-    <section class="mx-md-5 dark-grey-text">
+    <section class="dark-grey-text">
         <!-- Grid row -->
         <div class="row">
             <!-- Grid column -->
             <div class="col-md-12">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
-
                     <!-- Card image -->
                     <div class="view view-cascade overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(142).jpg" alt="Sample image">
+                        <img class="card-img-top" src="<?= $vars['post']->imageUrl(); ?>" alt="Sample image">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
-
                     <!-- Card content -->
                     <div class="card-body card-body-cascade text-center">
-
                         <!-- Title -->
-                        <h3 class="font-weight-bold"><a>Title of the news</a></h3>
+                        <h3 class="font-weight-bold"><a><?= $vars['post']->title(); ?></a></h3>
                         <!-- Data -->
-                        <p>Written by <a><strong>Abby Madison</strong></a>, 26/08/2018</p>
-
+                        <p>Écris par <a><strong><?= $vars['post']->author(); ?></strong></a>, <?= $vars['post']->creationDate(); ?></p>
                     </div>
                     <!-- Card content -->
                 </div>
                 <!-- Card -->
                 <!-- Excerpt -->
                 <div class="mt-5">
-
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui praesentium voluptatum deleniti atque
-                corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-                sunt in culpa nemo enim ipsam voluptatem quia voluptas sit qui officia deserunt mollitia animi, id
-                est laborum et dolorum fuga quidem rerum facilis est distinctio.
-                </p>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-                maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Quis autem vel
-                eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Temporibus
-                autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
-                repudiandae sint et molestiae non recusandae itaque earum rerum.</p>
-
+                    <?= $vars['post']->content(); ?>
                 </div>
             </div>
             <!-- Grid column -->
         </div>
         <!-- Grid row -->
-        <hr class="mb-5 mt-4">
     </section>
     <!--Section: Content-->
+
+    <!--Section: Comments-->
+    <section class="dark-grey-text">
+        <div class="card card-comments mb-3 wow fadeIn mt-5">
+            <div class="card-header font-weight-bold">Commentaire(s)</div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Clement, le 12/03/2019</p>
+                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
+                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
+                        </p>
+                        <hr class="mb-5 mt-4">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Clement, le 12/03/2019</p>
+                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
+                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
+                        </p>
+                        <hr class="mb-5 mt-4">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Clement, le 12/03/2019</p>
+                        <p>Salut, super ce premier episode, l'intrigue est pas mal malgre le manque de détails on attend la suite avec impatience !
+                            dans combien de temps peut on esperer lire la suite ? en tout cas bravo ;)
+                        </p>
+                        <hr class="mb-5 mt-4">
+                    </div>
+                </div>
+
+                <div class="card border-light">
+                    <div class="card-footer">
+                        <!-- Default form reply -->
+                        <form>
+                            <!-- Comment -->
+                            <div class="form-group">
+                            <label for="replyFormComment">Votre commentaire</label>
+                            <textarea class="form-control" id="replyFormComment" rows="5"></textarea>
+                            </div>
+                            <!-- Name -->
+                            <label for="replyFormName">Votre nom</label>
+                            <input type="email" id="replyFormName" class="form-control">
+                            <br>
+                            <!-- Email -->
+                            <label for="replyFormEmail">votre e-mail</label>
+                            <input type="email" id="replyFormEmail" class="form-control">
+
+                            <div class="text-center mt-4">
+                            <button class="btn btn-info btn-md" type="submit">Post</button>
+                            </div>
+                        </form>
+                        <!-- Default form reply -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
