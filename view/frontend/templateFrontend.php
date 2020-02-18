@@ -76,7 +76,7 @@ if ($this->isAdmin())
             
                     <!-- Right -->
 <?php 
-if (isset($_SESSION) && array_key_exists('pseudo', $_SESSION))
+if ($this->isConnect())
 {
 ?>
                     <ul class="navbar-nav nav-flex-icons">
