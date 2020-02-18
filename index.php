@@ -1,7 +1,6 @@
 <?php
 
 use \Controller\IndexController;
-use \Controller\AdminController;
 
 class Router
 {
@@ -22,7 +21,7 @@ class Router
 
     private function callAction()
     {
-        // var_dump($this->_lastUri);
+        session_start();
 
         switch($this->_lastUri)
         {
@@ -32,6 +31,10 @@ class Router
 
             case "/blog" :
                 (new IndexController())->blog();
+            break;
+
+            case "/post" :
+                (new IndexController())->post();
             break;
 
             case "/contact" :
@@ -47,14 +50,9 @@ class Router
                 (new AdminController())->registration();
             break;
 
-            case "/admin/login" :
-                (new AdminController())->login();
+            case "/logout" :
+                (new IndexController())->logout();
             break;
-            
-            /*
-            default :
-                (new IndexController())->home();
-            */
         }
     }
 }

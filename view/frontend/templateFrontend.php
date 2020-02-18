@@ -23,11 +23,12 @@
     <!-- Favicon -->
     <link rel="icon" href="" /> <!-- TO DO -->
     <!-- Frameworks -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="" />
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect" href="http://localhost:8888/">
-                    <img src="https://mdbootstrap.com/wp-content/uploads/2018/06/logo-mdb-jquery-small.png" alt="Logo">
+                    JEAN FORTEROCHE
                 </a>
 
                 <!-- Collapse -->
@@ -61,17 +62,58 @@
                         <li class="nav-item">
                         <a class="nav-link waves-effect" href="http://localhost:8888/contact">Contact</a>
                         </li>
+<?php 
+if ($this->isAdmin())
+{
+?>
+                        <li class="nav-item">
+                        <a class="nav-link waves-effect" href="http://localhost:8888/admin">Administration</a>
+                        </li>
+<?php
+}
+?>
                     </ul>
             
                     <!-- Right -->
+<?php 
+if (isset($_SESSION) && array_key_exists('pseudo', $_SESSION))
+{
+?>
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">JEAN FORTEROCHE</li>
-                        <li class="nav-item">
-                            <a href="http://localhost:8888/login">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <li class="nav-item mr-2">
+                            <i class="fa fa-user"></i>
+                            <span class="ml-2"><?= $_SESSION['pseudo'] ?></span>
+                        </li>
+                        <li class="nav-item mr-2">|</li>
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/logout">
+                                <span class="mr-1">déconnexion</span>
+                                <i class="fa fa-sign-out"></i>
                             </a>
                         </li>
                     </ul>
+<?php
+}
+else{
+?>
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/login">
+                                <i class="fa fa-user"></i>
+                                <span class="ml-2">connexion</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mr-2">|</li>
+                        <li class="nav-item mr-2">
+                            <a href="http://localhost:8888/registration">
+                                <span class="mr-1">inscription</span>
+                                <i class="fa fa-sign-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+<?php
+}
+?>
                 </div>
             </div>
         </nav>
