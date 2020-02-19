@@ -42,68 +42,94 @@
     <section class="dark-grey-text">
         <div class="card my-5">
             <div class="card-header font-weight-bold">Commentaire(s)</div>
-            <div class="card-body">
+            <div class="card-body pb-0">
 <?php
 foreach ($vars['comments'] as $var['comment'])
 {
 ?>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>
-                            <span>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <?= $var['comment']->author(); ?>
                                 <?= $var['comment']->commentDate(); ?>
-                            </span>
+                            </div>
+                            <div class="col-lg-6">
+                                <form method="POST" class="text-right">
+                                    <button class="btn btn-outline-danger btn-sm" type="submit" name="report">signaler</button>
+                                </form>
+                            </div>
+                        </div>
+                            
+                        
+                        <p>
+                                <?= $var['comment']->comment(); ?>
+                            
+
+
                         </p>
-                        <p><?= $var['comment']->comment(); ?></p>
                         <hr>
                     </div>
                 </div>
 <?php
 }
-?>
-                <div class="card border-light">
-                    <div class="card-footer">
-                        <!-- Default form reply -->
-                        <form method="POST">
-                            <div class="form-group">
-<?php 
-if (isset($_SESSION) && array_key_exists('pseudo', $_SESSION))
+if ($this->isConnect())
 {
-?>        
-                                <i class="fa fa-user"></i>
-                                <span class="ml-2"><?= $_SESSION['pseudo'] ?></span>
-                                <span class="">|</span>
-                                <a href="http://localhost:8888/logout">
-                                    <span class="mr-1">déconnexion</span>
-                                    <i class="fa fa-sign-out"></i>
-                                </a>
-<?php
-}
-else{
 ?>
-                                <a href="http://localhost:8888/login">
-                                    <i class="fa fa-user"></i>
-                                    <span class="ml-2">connexion</span>
-                                </a>
-<?php
-}
-// @todo mettre le formulaire dans le if
-?>
-                            </div>
-                            <!-- Comment -->
-                            <div class="form-group">
-                            <label for="replyFormComment">Votre commentaire</label>
-                            <textarea class="form-control" name="comment" id="replyFormComment" rows="5"></textarea>
-                            </div>
-                            <div class="text-center mt-4">
-                            <button class="btn btn-info btn-md" type="submit" name="submit">envoyer</button>
-                            </div>
-                        </form>
-                        <!-- Default form reply -->
+        </div>               
+            <div class="card-footer">
+                <!-- Default form reply -->
+                <form method="POST">
+                    <!-- Comment -->
+                    <div class="form-group">
+                        <label for="replyFormComment">
+                            <i class="fa fa-user"></i>
+                            <span class="ml-2"><?= $_SESSION['pseudo'] ?></span>
+                            <span class="">|</span>
+                            <a href="http://localhost:8888/logout">
+                                <span class="mr-1">déconnexion</span>
+                                <i class="fa fa-sign-out"></i>
+                            </a>
+                        </label>
+                        <textarea class="form-control" name="comment" id="replyFormComment" rows="5" placeholder="Écrivez votre commentaire ici ..." required></textarea>
                     </div>
-                </div>
+                    <div class="text-right">
+                        <button class="btn btn-info btn-md" type="submit" name="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- Default form reply -->
             </div>
+                
+<?php
+}
+else
+{
+?>
+            </div>
+            <div class="card-footer">
+                <div class="text-center mb-3">
+                    <small>Ajoutez votre commentaire en vous connectant à <a class="font-weight-bold" href="http://localhost:8888/login">votre espace membre</a></small>
+                </div>
+                <!-- Default form reply -->
+                <form method="POST">
+                    <!-- Comment -->
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment" id="replyFormComment" rows="5" placeholder="Écrivez votre commentaire ici ..." disabled></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-info btn-md" type="submit" name="submit" disabled>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- Default form reply -->
+            </div>
+<?php
+}
+?>
         </div>
     </section>
 </div>

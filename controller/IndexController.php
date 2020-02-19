@@ -57,6 +57,8 @@ class IndexController extends Controller
             ]);
 
             $commentManager->addComment($comment);
+
+            header('Location: /post?id='.$_GET['id']);
         }
 
         $view = new ViewController;
