@@ -61,13 +61,8 @@ foreach ($vars['comments'] as $var['comment'])
                                 </form>
                             </div>
                         </div>
-                            
-                        
                         <p>
-                                <?= $var['comment']->comment(); ?>
-                            
-
-
+                            <?= $var['comment']->comment(); ?>
                         </p>
                         <hr>
                     </div>
@@ -101,8 +96,7 @@ if ($this->isConnect())
                     </div>
                 </form>
                 <!-- Default form reply -->
-            </div>
-                
+            </div>     
 <?php
 }
 else

@@ -156,7 +156,16 @@ class IndexController extends Controller
                     session_start();
                     $_SESSION['pseudo'] = $user->pseudo();
                     $_SESSION['isAdmin'] = $user->isAdmin();
-                    header('Location: /');
+
+                    if ($this->isAdmin())
+                    {
+                        header('Location: /dashboard');
+                    }
+                    else
+                    {
+                        header('Location: /');
+                    }
+                    
                 }
                 else
                 {

@@ -1,6 +1,7 @@
 <?php
 
 use \Controller\IndexController;
+use \Controller\AdminController;
 
 class Router
 {
@@ -47,11 +48,14 @@ class Router
 
             case "/login" :
                 (new IndexController())->login();
-                (new AdminController())->registration();
             break;
 
             case "/logout" :
                 (new IndexController())->logout();
+            break;
+
+            case "/dashboard" :
+                (new AdminController())->dashboard();
             break;
         }
     }
