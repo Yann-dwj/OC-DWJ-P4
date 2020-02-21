@@ -32,8 +32,6 @@ class IndexController extends Controller
 
     public function post()
     {
-
-        
         if(isset($_GET['id']) && $_GET['id'] > 0 )
         {
             $postManager = new PostManager;
@@ -41,6 +39,17 @@ class IndexController extends Controller
     
             $commentManager = new CommentManager;
             $comments = $commentManager->getComments($_GET['id']);
+
+            if (isset($_POST) && isset($_POST['report']))
+            {
+                $comment = new Comment([
+                    'id' => $_POST['id']
+                ]);
+                $commentManager = new CommentManager;
+                $commentManager->reportComment($comment);
+    
+                header('Location: /post?id='.$_GET['id']);
+            }
         }
         else
         {

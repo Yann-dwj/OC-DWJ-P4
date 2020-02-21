@@ -8,8 +8,11 @@
         <div class="card ">
             <div class="card-header text-center" id="headingOne">
                 <h5 class="my-0">
-                    <i class="fas fa-pen-nib mr-1"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Nouvel Article</button>
+                    <i class="fas fa-pen-nib mr-2 text-left"></i>
+                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <p class="m-0">Nouvel Article <i class="fas fa-sort-down"></i></p>
+                    </button>
+                    
                 </h5>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionNewPost">
@@ -47,8 +50,10 @@
             <!--Card header-->
             <div class="card-header text-center" id="headingTwo">
                 <h5 class="my-0">
-                    <i class="fas fa-list mr-1"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Liste des Articles</button>
+                    <i class="fas fa-list mr-2"></i>
+                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <p class="m-0">Liste Des Articles <i class="fas fa-sort-down"></i></p>
+                    </button>
                 </h5>
             </div>
             <!--/Card header-->
@@ -98,12 +103,17 @@ foreach ($vars['posts'] as $var['post'])
                                 <td><?= $var['post']->creationDate(); ?></td>
                                 <td><?= $var['post']->creationDate(); ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                        <i class="fas fa-edit mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
+                                    <a href="post?id=<?= $var['post']->id(); ?>" target="_blank">
+                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </a>
+                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
+                                            <i class="fas fa-edit mt-0"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -120,12 +130,6 @@ foreach ($vars['posts'] as $var['post'])
     </div>
 </section>
 
-
-
-
-
-
-
 <section class="container dark-grey-text my-5">
     <div class="accordion" id="accordionReportComment">
         <!-- Table with panel -->
@@ -133,59 +137,77 @@ foreach ($vars['posts'] as $var['post'])
             <!--Card header-->
             <div class="card-header text-center" id="headingThree">
                 <h5 class="my-0">
-                    <i class="fas fa-comment-dots mr-1"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Commentaires Signalés</button>
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <p class="m-0">Commentaires Signalés <i class="fas fa-sort-down"></i></p>
+                    </button>
                 </h5>
             </div>
             <!--/Card header-->
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionReportComment">
+<?php
+if ($vars['reportedComments'])
+{
+?>
                 <div class="table-responsive">
                     <!--Table-->
                     <table class="table table-hover mb-0">
                         <!--Table head-->
                         <thead>
                             <tr>
-                                <th>
-
-                                </th>
+                                <th></th>
                                 <th class="th-xs">
-                                    <a># Article</a>
+                                    <a>Article</a>
                                 </th>
-                                <th class="th-lg">
+                                <th class="th-md">
                                     <a href="">Auteur</a>
                                 </th>
                                 <th class="th-lg">
                                     <a href="">Commentaire</a>
                                 </th>
-                                <th class="th-lg">
+                                <th class="th-md">
                                     <a href="">Publié le</a>
                                 </th>
-                                <th class="th-sm">
+                                <th class="th-xs">
                                     
                                 </th>
                             </tr>
                         </thead>
                         <!--Table head-->
 <?php
-foreach ($vars['posts'] as $var['post'])
+foreach ($vars['reportedComments'] as $var['reportedComment'])
 {
 ?>
                         <!--Table body-->
                         <tbody>
                             <tr>
-                                <th scope="row">
-                                </th>
-                                <td><?= $var['post']->id(); ?></td>
-                                <td><?= $var['post']->title(); ?></td>
-                                <td><?= $var['post']->author(); ?></td>
-                                <td><?= $var['post']->creationDate(); ?></td>
+                                <th scope="row"></th>
                                 <td>
+                                    <a href="post?id=<?= $var['reportedComment']->postId(); ?>" target="_blank">
+                                        # <?= $var['reportedComment']->postId(); ?>
+                                        <i class="far fa-eye ml-2"></i>
+                                    </a>
+                                </td>
+                                <td><?= $var['reportedComment']->author(); ?></td>
+                                <td><?= substr($var['reportedComment']->comment(), 0, 255); ?></td>
+                                <td><?= $var['reportedComment']->commentDate(); ?></td>
+                                <td>
+
+                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=validate">
                                     <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                        <i class="fas fa-edit mt-0"></i>
+                                        <i class="fas fa-check"></i>
                                     </button>
+                                </a>
+
+
+                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=delete">
                                     <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
+                                </a>
+
+
+
                                 </td>
                             </tr>
                         </tbody>
@@ -196,6 +218,16 @@ foreach ($vars['posts'] as $var['post'])
                     </table>
                     <!--Table-->
                 </div>
+<?php
+}
+else
+{
+?>
+                <p class="text-dark text-center mt-4">Aucun commentaire signalé</p>
+<?php
+}
+?>
+
             </div>
         </div>
     <!-- Table with panel -->

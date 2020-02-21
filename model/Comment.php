@@ -11,6 +11,7 @@ class Comment
     private $_author;
     private $_comment;
     private $_commentDate;
+    private $_report;
 
     public function __construct(array $data)
     {
@@ -57,6 +58,11 @@ class Comment
         return $this->_commentDate;
     }
 
+    public function report()
+    {
+        return $this->_report;
+    }
+
     // Setters
 
     public function setId($id)
@@ -82,5 +88,10 @@ class Comment
     public function setCommentDate($commentDate)
     {
         $this->_commentDate = $commentDate;
+    }
+
+    public function setReport($report)
+    {
+        $this->_report = $report;
     }
 }
