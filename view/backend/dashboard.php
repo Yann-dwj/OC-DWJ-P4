@@ -20,21 +20,25 @@
                     <form class="form" action="" method="POST">
                         <div class="form-group shadow-textarea">
                             <label for="titlePost">Titre :</label>
-                            <input class="form-control" id="titlePost" type="text" name="" placeholder="">
+                            <input class="form-control" id="titlePost" type="text" name="title" placeholder="">
+                        </div>
+                        <div class="form-group shadow-textarea">
+                            <label for="titlePost">Auteur :</label>
+                            <input class="form-control" id="titlePost" type="text" name="author" placeholder="">
                         </div>
                         <div class="form-group shadow-textarea">
                             <label for="contentPost">Contenu :</label>
-                            <textarea class="form-control" id="" type="text" name="" rows="5" placeholder=""></textarea>
+                            <textarea class="form-control" id="" type="text" name="content" rows="5" placeholder=""></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagePost">Image :</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="imagePost" id="inputGroupFile01" aria-describedby="">
+                                <input type="file" class="custom-file-input" name="imageUrl" id="inputGroupFile01" aria-describedby="">
                                 <label class="custom-file-label" for="">Selectionner un fichier JPEG ou PNG</label>
                             </div>
                         </div>
                         <div class="form-group m-0 pt-2">
-                        <button class="btn btn-light font-weight-bold btn-block" type="submit" name="submit">Valider</button>
+                        <button class="btn btn-light font-weight-bold btn-block" type="submit" name="post">Valider</button>
                         </div>
                     </form>
                 </div>
@@ -108,12 +112,16 @@ foreach ($vars['posts'] as $var['post'])
                                             <i class="far fa-eye"></i>
                                         </button>
                                     </a>
+                                    <a href="?post=<?= $var['post']->id(); ?>&action=edit">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
                                             <i class="fas fa-edit mt-0"></i>
                                         </button>
+                                    </a>
+                                    <a href="?post=<?= $var['post']->id(); ?>&action=delete">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
