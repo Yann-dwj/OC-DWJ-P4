@@ -46,7 +46,7 @@ class PostManager extends Manager
             'title' => $post->title(),
             'content' => $post->content(),
             'author' => $post->author(),
-            'imageUrl' => $post->imageUrl()
+            'imageUrl' => 'http://localhost:8888/public/images/' . $post->imageUrl()
         ]);
     }
 
@@ -59,15 +59,4 @@ class PostManager extends Manager
             $post->id()
         ]);
     }
-
-    // public function deleteComment(Comment $comment)
-    // {
-    //     $db = $this->dbConnect();
-
-    //     $query = $db->prepare('DELETE FROM comments WHERE id = ?');
-    //     $query->execute([
-    //         $comment->id()
-    //     ]);
-    // }
-
 }

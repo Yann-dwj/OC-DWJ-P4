@@ -17,7 +17,7 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionNewPost">
                 <div class="card-body">
-                    <form class="form" action="" method="POST">
+                    <form class="form" action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group shadow-textarea">
                             <label for="titlePost">Titre :</label>
                             <input class="form-control" id="titlePost" type="text" name="title" placeholder="">
@@ -28,13 +28,13 @@
                         </div>
                         <div class="form-group shadow-textarea">
                             <label for="contentPost">Contenu :</label>
-                            <textarea class="form-control" id="" type="text" name="content" rows="5" placeholder=""></textarea>
+                            <textarea id="mytextarea"class="form-control" id="" type="text" name="content" rows="5" placeholder=""></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagePost">Image :</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="imageUrl" id="inputGroupFile01" aria-describedby="">
-                                <label class="custom-file-label" for="">Selectionner un fichier JPEG ou PNG</label>
+                                <input type="file" class="custom-file-input" name="imageUrl" id="imageUrl" aria-describedby="">
+                                <label class="custom-file-label" for="imageUrl">Selectionner un fichier JPEG ou PNG</label>
                             </div>
                         </div>
                         <div class="form-group m-0 pt-2">
@@ -117,11 +117,36 @@ foreach ($vars['posts'] as $var['post'])
                                             <i class="fas fa-edit mt-0"></i>
                                         </button>
                                     </a>
-                                    <a href="?post=<?= $var['post']->id(); ?>&action=delete">
-                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </a>
+                                    
+                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#deletePostModal">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+
+                                    <div class="modal fade" id="deletePostModal" tabindex="-1" role="dialog" aria-labelledby="deletePostLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content text-center">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deletePostLabel">Suppression</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-dark">Êtes vous sûr de vouloir supprimer cet article ?</p>
+                                                    <small>"<?= $var['post']->title(); ?>"</small>
+                                                </div>
+                                                <div class="modal-footer flex-center">
+                                                <a href="?post=<?= $var['post']->id(); ?>&action=delete">
+                                                    <button class="btn btn-outline-danger btn-sm">confirmer</button>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    
                                 </td>
                             </tr>
                         </tbody>

@@ -71,7 +71,66 @@ foreach ($vars['comments'] as $var['comment'])
                                     <div class="col-lg-6">
                                         <form method="POST" class="text-right">
                                             <input class="d-none" name="id" value="<?= $var['comment']->id(); ?>"/>
-                                            <button class="btn btn-outline-danger btn-sm" type="submit" name="report">signaler</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#basicExampleModal-<?php echo $var['comment']->id();?>">signaler</button>
+                                            <!-- Modal -->
+<?php
+
+// TODO : Condition si le commentaire est un commantaire signalé !!!
+
+// if (empty($vars['reportedComment']))
+if ($var['comment']->report() == 0)
+{
+?>
+                                            <div class="modal fade" id="basicExampleModal-<?php echo $var['comment']->id();?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-<?php echo $var['comment']->id();?>"
+                                            aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content text-center">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel-<?php echo $var['comment']->id();?>">Modération</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="text-dark">Êtes vous sûr de vouloir signaler ce commentaire ?</p>
+                                                            <small>"<?= $var['comment']->comment(); ?>"</small>
+                                                        </div>
+                                                        <div class="modal-footer flex-center">
+                                                            <button class="btn btn-outline-danger btn-sm" type="submit" name="report">confirmer</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+<?php
+// if ($var['comment']->report() == 1)
+}
+elseif ($var['comment']->report() == 1)
+{
+?>
+                                            <div class="modal fade" id="basicExampleModal-<?php echo $var['comment']->id();?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-<?php echo $var['comment']->id();?>"
+                                            aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content text-center">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel-<?php echo $var['comment']->id();?>">Modération</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p><small class="text-dark">"<?= $var['comment']->comment(); ?>"</small></p>
+                                                            <p class="mb-1">Ce commentaire a déja été signalé</p> 
+                                                            <p class="mb-0">il est en attente de modération par l'administrateur du site</p>
+                                                        </div>
+                                                        <div class="modal-footer flex-center">
+                                                            <button class="btn btn-outline-danger btn-sm" type="button" data-dismiss="modal">Quitter</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+<?php
+}
+?>
                                         </form>
                                     </div>
                                 </div>
