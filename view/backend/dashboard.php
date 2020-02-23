@@ -34,7 +34,7 @@
                             <label for="imagePost">Image :</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="imageUrl" id="imageUrl" aria-describedby="">
-                                <label class="custom-file-label" for="imageUrl">Selectionner un fichier JPEG ou PNG</label>
+                                <label class="custom-file-label" for="imageUrl">Selectionner un fichier JPEG</label>
                             </div>
                         </div>
                         <div class="form-group m-0 pt-2">
@@ -109,25 +109,25 @@ foreach ($vars['posts'] as $var['post'])
                                 <td>
                                     <a href="post?id=<?= $var['post']->id(); ?>" target="_blank">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                            <i class="far fa-eye"></i>
+                                            <i class="far fa-eye text-muted"></i>
                                         </button>
                                     </a>
                                     <a href="?post=<?= $var['post']->id(); ?>&action=edit">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                            <i class="fas fa-edit mt-0"></i>
+                                            <i class="fas fa-edit mt-0 text-warning"></i>
                                         </button>
                                     </a>
                                     
-                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#deletePostModal">
-                                        <i class="far fa-trash-alt"></i>
+                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#deletePostModal-<?= $var['post']->id();?>">
+                                        <i class="far fa-trash-alt text-danger"></i>
                                     </button>
 
-                                    <div class="modal fade" id="deletePostModal" tabindex="-1" role="dialog" aria-labelledby="deletePostLabel"
+                                    <div class="modal fade" id="deletePostModal-<?= $var['post']->id();?>" tabindex="-1" role="dialog" aria-labelledby="deletePostLabel-<?= $var['post']->id();?>"
                                         aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content text-center">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="deletePostLabel">Suppression</h5>
+                                                    <h5 class="modal-title" id="deletePostLabel-<?= $var['post']->id();?>">Suppression</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -225,22 +225,59 @@ foreach ($vars['reportedComments'] as $var['reportedComment'])
                                 <td><?= substr($var['reportedComment']->comment(), 0, 255); ?></td>
                                 <td><?= $var['reportedComment']->commentDate(); ?></td>
                                 <td>
-
-                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=validate">
-                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                        <i class="fas fa-check"></i>
+                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#validateCommentModal-<?= $var['reportedComment']->id();?>">
+                                        <i class="fas fa-check text-success"></i>
                                     </button>
-                                </a>
 
+                                    <div class="modal fade" id="validateCommentModal-<?= $var['reportedComment']->id();?>" tabindex="-1" role="dialog" aria-labelledby="validateCommentLabel-<?= $var['reportedComment']->id();?>"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content text-center">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="validateCommentLabel-<?= $var['reportedComment']->id();?>">Modération</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-dark">Ce commentaire n'a pas besoin d'être modéré ?</p>
+                                                    <small>"<?= $var['reportedComment']->comment(); ?>"</small>
+                                                </div>
+                                                <div class="modal-footer flex-center">
+                                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=validate">
+                                                    <button class="btn btn-outline-success btn-sm">Confirmer</button>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=delete">
-                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
-                                        <i class="far fa-trash-alt"></i>
+                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#deleteCommentModal-<?= $var['reportedComment']->id();?>">
+                                        <i class="far fa-trash-alt text-danger"></i>
                                     </button>
-                                </a>
 
-
-
+                                    <div class="modal fade" id="deleteCommentModal-<?= $var['reportedComment']->id();?>" tabindex="-1" role="dialog" aria-labelledby="deleteCommentLabel-<?= $var['reportedComment']->id();?>"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content text-center">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteCommentLabel-<?= $var['reportedComment']->id();?>">Modération</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-dark">Êtes vous sûr de vouloir supprimer ce commentaire ?</p>
+                                                    <small>"<?= $var['reportedComment']->comment(); ?>"</small>
+                                                </div>
+                                                <div class="modal-footer flex-center">
+                                                <a href="?comment=<?= $var['reportedComment']->id(); ?>&action=delete">                                                    
+                                                    <button class="btn btn-outline-danger btn-sm">Supprimer</button>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
