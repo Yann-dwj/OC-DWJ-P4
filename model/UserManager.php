@@ -63,4 +63,20 @@ class UserManager extends Manager
             return new User($data);
         }
     }
+
+    public function getUsers()
+    {
+        $db = $this->dbConnect();
+
+        $posts = [];
+
+        $query = $db->query('SELECT * FROM users ORDER BY registrationDate DESC');
+
+        while ($data = $query->fetch(\PDO::FETCH_ASSOC))
+        {
+            $users[] = new User($data);
+        }
+        
+        return $users;
+    }
 }

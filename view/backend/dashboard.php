@@ -3,7 +3,49 @@
 
 <h1 class="text-center">Bienvenue sur votre tableau de bord</h1>
 
-<section class="container dark-grey-text my-5">
+<!-- Section: Block Content -->
+<section class="container mt-5">
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="media white z-depth-1 rounded">
+                <i class="fas fa-file-alt fa-2x blue z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
+                <div class="media-body p-1">
+                    <p class="text-uppercase text-muted mb-1"><small>Articles</small></p>
+                    <h5 class="font-weight-bold mb-0">12</h5>
+                </div>
+            </div>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="media white z-depth-1 rounded">
+                <i class="fas fa-comments fa-2x deep-purple z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
+                <div class="media-body p-1">
+                    <p class="text-uppercase text-muted mb-1"><small>Commentaires</small></p>
+                    <h5 class="font-weight-bold mb-0">28</h5>
+                </div>
+            </div>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="media white z-depth-1 rounded">
+                <i class="fas fa-users fa-2x pink z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
+                <div class="media-body p-1">
+                    <p class="text-uppercase text-muted mb-1"><small>Utilisateurs</small></p>
+                    <h5 class="font-weight-bold mb-0">8</h5>
+                </div>
+            </div>
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+</section>
+<!-- Section: Block Content -->
+
+<section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionNewPost">
         <div class="card ">
             <div class="card-header text-center" id="headingOne">
@@ -47,7 +89,7 @@
     </div>
 </section>
 
-<section class="container dark-grey-text my-5">
+<section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionListPost">
         <!-- Table with panel -->
         <div class="card">
@@ -143,10 +185,7 @@ foreach ($vars['posts'] as $var['post'])
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    
+                                    </div>  
                                 </td>
                             </tr>
                         </tbody>
@@ -163,7 +202,7 @@ foreach ($vars['posts'] as $var['post'])
     </div>
 </section>
 
-<section class="container dark-grey-text my-5">
+<section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionReportComment">
         <!-- Table with panel -->
         <div class="card">
@@ -298,6 +337,112 @@ else
 }
 ?>
 
+            </div>
+        </div>
+    <!-- Table with panel -->
+    </div>
+</section>
+
+
+
+
+
+
+<section class="container dark-grey-text my-4">
+    <div class="accordion" id="accordionListUser">
+        <!-- Table with panel -->
+        <div class="card">
+            <!--Card header-->
+            <div class="card-header text-center" id="headingFour">
+                <h5 class="my-0">
+                    <i class="fas fa-user mr-2"></i>
+                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <p class="m-0">Utilisateurs <i class="fas fa-sort-down"></i></p>
+                    </button>
+                </h5>
+            </div>
+            <!--/Card header-->
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionListUser">
+                <div class="table-responsive">
+                    <!--Table-->
+                    <table class="table table-hover mb-0">
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th class="th-xs">
+                                    <a>#</a>
+                                </th>
+                                <th class="th-lg">
+                                    <a href="">Pseudo</a>
+                                </th>
+                                <th class="th-lg">
+                                    <a href="">E-mail</a>
+                                </th>
+                                <th class="th-lg">
+                                    <a href="">Date d'inscription</a>
+                                </th>
+                                <th class="th-lg">
+                                    <a href="">Commentaires publiés</a>
+                                </th>
+                                <th class="th-sm">
+                                    
+                                </th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+<?php
+foreach ($vars['users'] as $var['user'])
+{
+?>
+                        <!--Table body-->
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                </th>
+                                <td><?= $var['user']->id(); ?></td>
+                                <td><?= $var['user']->pseudo(); ?></td>
+                                <td><?= $var['user']->email(); ?></td>
+                                <td><?= $var['user']->registrationDate(); ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#deleteUserModal-<?= $var['user']->id();?>">
+                                        <i class="far fa-trash-alt text-danger"></i>
+                                    </button>
+
+                                    <div class="modal fade" id="deleteUserModal-<?= $var['user']->id();?>" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel-<?= $var['user']->id();?>"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content text-center">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteUserLabel-<?= $var['user']->id();?>">Suppression</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-dark">Êtes vous sûr de vouloir supprimer cet utilisateur ?</p>
+                                                    <small>"<?= $var['user']->pseudo(); ?>"</small>
+                                                </div>
+                                                <div class="modal-footer flex-center">
+                                                <a href="?post=<?= $var['user']->id(); ?>&action=delete">
+                                                    <button class="btn btn-outline-danger btn-sm">confirmer</button>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!--Table body-->
+<?php
+}
+?>
+                    </table>
+                    <!--Table-->
+                </div>
             </div>
         </div>
     <!-- Table with panel -->

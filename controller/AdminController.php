@@ -6,6 +6,8 @@ use \Model\Post;
 use \Model\PostManager;
 use \Model\Comment;
 use \Model\CommentManager;
+use \Model\User;
+use \Model\UserManager;
 
 class AdminController extends Controller
 {
@@ -19,10 +21,14 @@ class AdminController extends Controller
             $commentManager = new CommentManager;
             $reportedComments = $commentManager->getReportedComments();
 
+            $userManager = new UserManager;
+            $users = $userManager->getUsers();
+
             $view = new ViewController;
             $view->renderAdmin('dashboard', 'templateBackend', [
                 'posts' => $posts,
-                'reportedComments' => $reportedComments
+                'reportedComments' => $reportedComments,
+                'users' => $users
             ]);
 
             // Controle commentaires signalés

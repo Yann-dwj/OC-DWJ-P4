@@ -23,7 +23,7 @@ foreach ($vars['posts'] as $var['post'])
                             <!-- Title -->
                             <h5 class="black-text"><?= $var['post']->title(); ?></h5>
                             <!-- Text -->
-                            <p class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 255) . '...'; ?></p>
+                            <div class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 255) . '...'; ?></div>
                         </div>
                         <div class="card-footer">
                             <div class="row black-text">
