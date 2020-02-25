@@ -154,7 +154,7 @@ foreach ($vars['posts'] as $var['post'])
                                             <i class="far fa-eye text-muted"></i>
                                         </button>
                                     </a>
-                                    <a href="editPost?id=<?= $var['post']->id(); ?>" target="_blank">
+                                    <a href="editPost?id=<?= $var['post']->id(); ?>">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
                                             <i class="fas fa-edit mt-0 text-warning"></i>
                                         </button>

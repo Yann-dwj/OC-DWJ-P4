@@ -189,6 +189,9 @@ class AdminController extends Controller
                 ]);
     
                 $postManager->updatePost($post);
+
+                header('Location: /dashboard');
+                exit;
             }
         }
     }
