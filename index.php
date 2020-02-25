@@ -57,6 +57,10 @@ class Router
             case "/dashboard" :
                 (new AdminController())->dashboard();
             break;
+
+            case "/editPost" : 
+                (new AdminController())->editPost();
+            break;
         }
     }
 }

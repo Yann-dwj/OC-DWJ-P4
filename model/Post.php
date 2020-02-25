@@ -12,6 +12,8 @@ class Post
     private $_author;
     private $_creationDate;
     private $_imageUrl;
+    private $_updateDate;
+
 
     public function __construct(array $data)
     {
@@ -63,6 +65,11 @@ class Post
         return $this->_imageUrl;
     }
 
+    public function updateDate()
+    {
+        return $this->_updateDate;
+    }
+
     // Setters
 
     public function setId($id)
@@ -93,5 +100,10 @@ class Post
     public function setImageUrl($imageUrl)
     {
         $this->_imageUrl = $imageUrl;
+    }
+
+    public function setUpdateDate($updateDate)
+    {
+        $this->_updateDate = $updateDate;
     }
 }

@@ -50,6 +50,25 @@ class PostManager extends Manager
         ]);
     }
 
+
+
+    public function updatePost(Post $post)
+    {
+        $db = $this->dbConnect();
+
+        $query = $db->prepare('UPDATE posts SET title = :title, content = :content, author = :author, imageUrl = :imageUrl, updateDate = NOW() WHERE id = :id');
+        $query->execute([
+            ':title' => $post->title(),
+            ':content' => $post->content(),
+            ':author' => $post->author(),
+            ':imageUrl' => 'http://localhost:8888/public/images/' . $post->imageUrl(),
+            ':id' => $post->id()
+        ]);
+    }
+
+
+
+
     public function deletePost(Post $post)
     {
         $db = $this->dbConnect();
