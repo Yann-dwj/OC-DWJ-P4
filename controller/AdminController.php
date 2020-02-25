@@ -123,6 +123,19 @@ class AdminController extends Controller
                 }
             }
 
+            // Controle utilisateur
+            if (!empty($_GET['user']) && !empty($_GET['action']))
+            {
+                if ($_GET['action'] == 'delete')
+                {
+                    $user = new User([
+                        'id' => $_GET['user']
+                    ]);
+                    
+                    $userManager->deleteUser($user);
+                }
+            }
+
         }
     }
 }

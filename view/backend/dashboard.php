@@ -423,7 +423,7 @@ foreach ($vars['users'] as $var['user'])
                                                     <small>"<?= $var['user']->pseudo(); ?>"</small>
                                                 </div>
                                                 <div class="modal-footer flex-center">
-                                                <a href="?post=<?= $var['user']->id(); ?>&action=delete">
+                                                <a href="?user=<?= $var['user']->id(); ?>&action=delete">
                                                     <button class="btn btn-outline-danger btn-sm">confirmer</button>
                                                 </a>
                                                 </div>

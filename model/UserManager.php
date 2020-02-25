@@ -79,4 +79,14 @@ class UserManager extends Manager
         
         return $users;
     }
+
+    public function deleteUser(User $user)
+    {
+        $db = $this->dbConnect();
+
+        $query = $db->prepare('DELETE FROM users WHERE id = ?');
+        $query->execute([
+            $user->id()
+        ]);
+    }
 }
