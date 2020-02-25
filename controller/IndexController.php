@@ -39,6 +39,7 @@ class IndexController extends Controller
     
             $commentManager = new CommentManager;
             $comments = $commentManager->getComments($_GET['id']);
+            $numberComments = count($comments);
 
             if (isset($_POST) && isset($_POST['report']))
             {
@@ -61,6 +62,7 @@ class IndexController extends Controller
         
             $comment = new Comment([
                 'postId' => $_GET['id'],
+                'postTitle' => $post->title(),
                 'author' => $_SESSION['pseudo'],
                 'comment' => $_POST['comment']
             ]);
@@ -73,7 +75,8 @@ class IndexController extends Controller
         $view = new ViewController;
         $view->render('post', 'templateFrontend', [
             'post' => $post,
-            'comments' => $comments
+            'comments' => $comments,
+            'numberComments' => $numberComments
         ]);
     }
 

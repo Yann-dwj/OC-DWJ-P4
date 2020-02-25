@@ -26,6 +26,22 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getAllComments()
+    {
+        $db = $this->dbConnect();
+
+        $query = $db->query('SELECT * FROM comments');
+
+        $comments = [];
+
+        while ($data = $query->fetch(\PDO::FETCH_ASSOC))
+        {
+            $comments[] = new Comment($data);
+        }
+        
+        return $comments;
+    }
+
     public function reportComment(Comment $comment)
     {
         $db = $this->dbConnect();
@@ -42,8 +58,6 @@ class CommentManager extends Manager
 
         $query = $db->query('SELECT * FROM comments WHERE report = 1');
 
-        // $query = $db->query('SELECT p.title title, c.* FROM comments c INNER JOIN posts p ON p.id = c.postId WHERE report = 1');
-
         $comments = [];
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC))
@@ -58,9 +72,10 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $query = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate) VALUES(:postId, :author, :comment, NOW())');
+        $query = $db->prepare('INSERT INTO comments(postId, postTitle, author, comment, commentDate) VALUES(:postId, :postTitle, :author, :comment, NOW())');
         $query->execute([
             'postId' => $comment->postId(),
+            'postTitle' => $comment->postTitle(),
             'author' => $comment->author(),
             'comment' => $comment->comment()
         ]);

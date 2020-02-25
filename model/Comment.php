@@ -8,6 +8,7 @@ class Comment
 
     private $_id;
     private $_postId;
+    private $_postTitle;
     private $_author;
     private $_comment;
     private $_commentDate;
@@ -43,6 +44,11 @@ class Comment
         return $this->_postId;
     }
 
+    public function postTitle()
+    {
+        return $this->_postTitle;
+    }
+
     public function author()
     {
         return $this->_author;
@@ -73,6 +79,11 @@ class Comment
     public function setPostId($postId)
     {
         $this->_postId = $postId;
+    }
+
+    public function setPostTitle($postTitle)
+    {
+        $this->_postTitle = $postTitle;
     }
 
     public function setAuthor($author)

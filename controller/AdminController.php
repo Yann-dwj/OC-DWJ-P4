@@ -17,18 +17,33 @@ class AdminController extends Controller
         {
             $postManager = new PostManager;
             $posts = $postManager->getPosts();
+            $numberPosts = count($posts);
 
             $commentManager = new CommentManager;
             $reportedComments = $commentManager->getReportedComments();
+            $numberReportedComments = count($reportedComments);
+
+            $comments = $commentManager->getAllComments();
+            $numberComments = count($comments);
+            
+            // $commentsPost = $commentManager->getComments($_GET['id']);
+            // $numberCommentsPost = count($commentsPost);
 
             $userManager = new UserManager;
             $users = $userManager->getUsers();
+            $numberUsers = count($users);
+
 
             $view = new ViewController;
             $view->renderAdmin('dashboard', 'templateBackend', [
                 'posts' => $posts,
+                'numberPosts' => $numberPosts,
                 'reportedComments' => $reportedComments,
-                'users' => $users
+                'numberReportedComments' => $numberReportedComments,
+                'numberComments' => $numberComments,
+                // 'numberCommentsPost' => $numberCommentsPost,
+                'users' => $users,
+                'numberUsers' => $numberUsers
             ]);
 
             // Controle commentaires signalés

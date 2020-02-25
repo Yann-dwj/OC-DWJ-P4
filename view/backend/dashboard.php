@@ -13,7 +13,7 @@
                 <i class="fas fa-file-alt fa-2x blue z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
                 <div class="media-body p-1">
                     <p class="text-uppercase text-muted mb-1"><small>Articles</small></p>
-                    <h5 class="font-weight-bold mb-0">12</h5>
+                    <h5 class="font-weight-bold mb-0"><?= $vars['numberPosts']; ?></h5>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <i class="fas fa-comments fa-2x deep-purple z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
                 <div class="media-body p-1">
                     <p class="text-uppercase text-muted mb-1"><small>Commentaires</small></p>
-                    <h5 class="font-weight-bold mb-0">28</h5>
+                    <h5 class="font-weight-bold mb-0"><?= $vars['numberComments']; ?></h5>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <i class="fas fa-users fa-2x pink z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
                 <div class="media-body p-1">
                     <p class="text-uppercase text-muted mb-1"><small>Utilisateurs</small></p>
-                    <h5 class="font-weight-bold mb-0">8</h5>
+                    <h5 class="font-weight-bold mb-0"><?= $vars['numberUsers']; ?></h5>
                 </div>
             </div>
         </div>
@@ -125,9 +125,9 @@
                                 <th class="th-lg">
                                     <a href="">Date de création</a>
                                 </th>
-                                <th class="th-lg">
+                                <!-- <th class="th-lg">
                                     <a href="">Commentaires</a>
-                                </th>
+                                </th> -->
                                 <th class="th-sm">
                                     
                                 </th>
@@ -147,7 +147,7 @@ foreach ($vars['posts'] as $var['post'])
                                 <td><?= $var['post']->title(); ?></td>
                                 <td><?= $var['post']->author(); ?></td>
                                 <td><?= $var['post']->creationDate(); ?></td>
-                                <td><?= $var['post']->creationDate(); ?></td>
+                                <!-- <td><?= $vars['numberCommentsPost']; ?></td> -->
                                 <td>
                                     <a href="post?id=<?= $var['post']->id(); ?>" target="_blank">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
@@ -256,14 +256,19 @@ foreach ($vars['reportedComments'] as $var['reportedComment'])
                                 <th scope="row"></th>
                                 <td>
                                     <a href="post?id=<?= $var['reportedComment']->postId(); ?>" target="_blank">
-                                        # <?= $var['reportedComment']->postId(); ?>
-                                        <i class="far fa-eye ml-2"></i>
+                                        <?= $var['reportedComment']->postTitle(); ?>
                                     </a>
                                 </td>
                                 <td><?= $var['reportedComment']->author(); ?></td>
                                 <td><?= substr($var['reportedComment']->comment(), 0, 255); ?></td>
                                 <td><?= $var['reportedComment']->commentDate(); ?></td>
                                 <td>
+                                    <a href="post?id=<?= $var['reportedComment']->postId(); ?>" target="_blank">
+                                        <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
+                                            <i class="far fa-eye text-muted"></i>
+                                        </button>
+                                    </a>
+
                                     <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2" data-toggle="modal" data-target="#validateCommentModal-<?= $var['reportedComment']->id();?>">
                                         <i class="fas fa-check text-success"></i>
                                     </button>
@@ -343,11 +348,6 @@ else
     </div>
 </section>
 
-
-
-
-
-
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionListUser">
         <!-- Table with panel -->
@@ -373,7 +373,7 @@ else
 
                                 </th>
                                 <th class="th-xs">
-                                    <a>#</a>
+                                    <a># Id</a>
                                 </th>
                                 <th class="th-lg">
                                     <a href="">Pseudo</a>
@@ -384,10 +384,7 @@ else
                                 <th class="th-lg">
                                     <a href="">Date d'inscription</a>
                                 </th>
-                                <th class="th-lg">
-                                    <a href="">Commentaires publiés</a>
-                                </th>
-                                <th class="th-sm">
+                                <th class="th-xs">
                                     
                                 </th>
                             </tr>

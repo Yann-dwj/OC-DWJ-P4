@@ -45,7 +45,26 @@
                 <div class="card-header font-weight-bold text-center" id="headingOne">
                     <h5 class="my-0">
                         <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <p class="m-0">Commentaires <i class="fas fa-sort-down"></i></p>
+<?php
+if ($vars['comments'] && $vars['numberComments'] == 1)
+{
+?>
+                            <p class="m-0">Voir le commentaire <i class="fas fa-sort-down"></i></p>
+<?php
+}
+elseif ($vars['comments'] && $vars['numberComments'] > 1)
+{
+?>
+                            <p class="m-0">Voir les <?= $vars['numberComments']; ?> commentaires <i class="fas fa-sort-down"></i></p>
+<?php
+}
+else
+{
+?>
+                            <p class="m-0">Commentaire <i class="fas fa-sort-down"></i></p>
+<?php
+}
+?>
                         </button>
                     </h5>
                 </div>
