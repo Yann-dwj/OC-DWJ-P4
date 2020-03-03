@@ -13,9 +13,12 @@ class IndexController extends Controller
 {
     public function home()
     {
+        $postManager = new PostManager;
+        $latestPosts = $postManager->latestPosts();
+
         $view = new ViewController;
         $view->render('home', 'templateFrontend', [
-            'message' => 'coucou'
+            "latestPosts" => $latestPosts
         ]);
     }
 

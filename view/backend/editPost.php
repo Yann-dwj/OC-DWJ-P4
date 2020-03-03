@@ -1,3 +1,4 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Modifier ' . $vars['post']->title(); ?>
 <?php $metaDescription = ''; ?>
 

@@ -42,7 +42,7 @@ class Post
 
     public function title()
     {
-        return $this->_title;
+        return htmlspecialchars($this->_title);
     }
 
     public function content()
@@ -52,7 +52,7 @@ class Post
 
     public function author()
     {
-        return $this->_author;
+        return htmlspecialchars($this->_author);
     }
 
     public function creationDate()

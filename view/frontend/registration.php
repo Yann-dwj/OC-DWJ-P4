@@ -1,7 +1,8 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Inscription'; ?>
 <?php $metaDescription = 'Inscrivez-vous en tant que membre du blog de Jean Forteroche et accedez aux fonctionnalités du site'; ?>
 
-<div class="container my-5 py-5 z-depth-1">
+<div class="container-fluid pt-5">
     <!--Section: Content-->
     <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
         <!--Grid row-->
@@ -15,7 +16,7 @@
                         <!-- Default form register -->
                         <form class="text-center" action="http://localhost:8888/registration" method="post">
 
-                            <h1 class="h4 mb-4">Inscription</h1>
+                            <h1 class="h4 mb-4 text-uppercase font-weight-bold text-center">Inscription</h1>
 
 <?php 
 if (isset($vars['error']))

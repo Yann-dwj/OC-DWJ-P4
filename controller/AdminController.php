@@ -67,7 +67,8 @@ class AdminController extends Controller
                     $commentManager->validateComment($comment);
                 }
 
-                // header('Location: /dashboard');
+                // header('Location: /dashboard', true, 301);
+                // exit;
             }
 
             // Ajout d'un post

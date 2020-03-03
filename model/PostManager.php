@@ -13,7 +13,7 @@ class PostManager extends Manager
 
         $posts = [];
 
-        $query = $db->query('SELECT * FROM posts ORDER BY creationDate DESC');
+        $query = $db->query('SELECT id, title, content, author, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDate, imageUrl, DATE_FORMAT(updateDate, \'le %d/%m/%Y\') AS updateDate FROM posts ORDER BY id');
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC))
         {
@@ -27,7 +27,7 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $query = $db->prepare('SELECT * FROM posts WHERE id = ?');
+        $query = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creationDate, \'le %d/%m/%Y\') AS creationDate, imageUrl, DATE_FORMAT(updateDate, \'modifié le %d/%m/%Y\') AS updateDate FROM posts WHERE id = ?');
         $query->execute([
             $postId
         ]);
@@ -50,8 +50,6 @@ class PostManager extends Manager
         ]);
     }
 
-
-
     public function updatePost(Post $post)
     {
         $db = $this->dbConnect();
@@ -66,9 +64,6 @@ class PostManager extends Manager
         ]);
     }
 
-
-
-
     public function deletePost(Post $post)
     {
         $db = $this->dbConnect();
@@ -77,5 +72,21 @@ class PostManager extends Manager
         $query->execute([
             $post->id()
         ]);
+    }
+
+    public function latestPosts()
+    {
+        $db = $this->dbConnect();
+
+        $posts = [];
+
+        $query = $db->query('SELECT * FROM posts ORDER BY creationDate DESC LIMIT 0, 3');
+
+        while ($data = $query->fetch(\PDO::FETCH_ASSOC))
+        {
+            $posts[] = new Post($data);
+        }
+        
+        return $posts;
     }
 }

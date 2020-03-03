@@ -1,0 +1,20 @@
+.top-nav-collapse, .navbar:not(.top-nav-collapse), footer, #latestPosts
+{
+    background-color: #dee2e6 !important;
+}
+
+.main
+{
+    background-color: #87888d26;
+    padding-bottom: 3rem;
+}
+
+.btn-info
+{
+    background-color: #6e96b4 !important;
+}
+
+.text-blue
+{
+    color: #6e96b4 !important;
+}

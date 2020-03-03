@@ -1,7 +1,8 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Connexion'; ?>
 <?php $metaDescription = 'Connectez-vous à votre espace membre, redigez vos commentaires et partagez votre experience avec la communauté du blog'; ?>
 
-<div class="container my-5 py-5 z-depth-1">
+<div class="container-fluid pt-5">
     <!--Section: Content-->
     <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
         <!--Grid row-->
@@ -15,7 +16,7 @@
                         <!-- Default form register -->
                         <form class="text-center" action="http://localhost:8888/login" method="post">
 
-                            <h1 class="h4 mb-4">Connexion</h1>
+                            <h1 class="h4 mb-4 text-uppercase font-weight-bold text-center">Connexion</h1>
 
 <?php 
 if (isset($vars['error']))

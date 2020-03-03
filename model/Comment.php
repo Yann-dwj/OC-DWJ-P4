@@ -56,7 +56,7 @@ class Comment
 
     public function comment()
     {
-        return $this->_comment;
+        return htmlspecialchars($this->_comment);
     }
 
     public function commentDate()

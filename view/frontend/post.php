@@ -1,5 +1,29 @@
+<?php $css = 'post.css' ?>
 <?php $title = $vars['post']->title(); ?>
 <?php $metaDescription = 'Découvrez l\'épisode ' . $vars['post']->title() .' du nouveau roman de Jean Forteroche, Billet Simple pour l\'Alaska'; ?>
+
+<div class="masthead" style="height: 100vh; background-image:url('<?= $vars['post']->imageUrl(); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="mask rgba-black-light h-100">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5" style="letter-spacing: 8px;"><?= $vars['post']->title(); ?></h1>
+                    <p class="lead white-text">
+                        Écris par <?= $vars['post']->author(); ?>, <?= $vars['post']->creationDate(); ?><br/>
+<?php
+if ($vars['post']->updateDate())
+{
+?>
+                        modifié <?= $vars['post']->creationDate(); ?>
+<?php
+}
+?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container mt-5">
     <!--Section: Content-->
@@ -8,29 +32,7 @@
         <div class="row">
             <!-- Grid column -->
             <div class="col-md-12">
-                <!-- Card -->
-                <div class="card card-cascade wider reverse">
-                    <!-- Card image -->
-                    <div class="view view-cascade overlay">
-                        <img class="card-img-top" src="<?= $vars['post']->imageUrl(); ?>" alt="Sample image">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                    <!-- Card content -->
-                    <div class="card-body card-body-cascade text-center">
-                        <!-- Title -->
-                        <h3 class="font-weight-bold"><a><?= $vars['post']->title(); ?></a></h3>
-                        <!-- Data -->
-                        <p>Écris par <a><strong><?= $vars['post']->author(); ?></strong></a>, <?= $vars['post']->creationDate(); ?></p>
-                    </div>
-                    <!-- Card content -->
-                </div>
-                <!-- Card -->
-                <!-- Excerpt -->
-                <div class="mt-5">
-                    <?= $vars['post']->content(); ?>
-                </div>
+                <?= $vars['post']->content(); ?>
             </div>
             <!-- Grid column -->
         </div>
@@ -41,7 +43,7 @@
     <!--Section: Comments-->
     <section class="dark-grey-text">
         <div class="accordion" id="accordionComment">
-            <div class="card my-5">
+            <div class="card mt-5">
                 <div class="card-header font-weight-bold text-center" id="headingOne">
                     <h5 class="my-0">
                         <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -84,8 +86,8 @@ foreach ($vars['comments'] as $var['comment'])
                                 
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <?= $var['comment']->author(); ?>
-                                        <?= $var['comment']->commentDate(); ?>
+                                        <span class="text-blue font-weight-bold pr-2"><?= $var['comment']->author(); ?></span>
+                                        <small class="font-italic"><?= $var['comment']->commentDate(); ?></small>
                                     </div>
                                     <div class="col-lg-6">
                                         <form method="POST" class="text-right">

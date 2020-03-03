@@ -31,11 +31,13 @@
     <script>
       tinymce.init({
         selector: '#mytextarea',
-        placeholder: ''
+        placeholder: '',
+        width: '100%',
+        height: '500px'
       });
     </script>
     <!-- CSS -->
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="../../public/css/<?= $css ?>" />
 </head>
 
 <body>

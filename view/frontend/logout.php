@@ -1,7 +1,8 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Déconnexion'; ?>
 <?php $metaDescription = 'Déconnectez-vous de votre espace membre entre deux visites sur le Blog, Billet Simple pour l\'Alaska'; ?>
 
-<div class="container my-5 py-5 z-depth-1">
+<div class="container-fluid pt-5">
     <!--Section: Content-->
     <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
         <!--Grid row-->
@@ -15,7 +16,7 @@
                         <!-- Default form register -->
                         <form class="text-center" action="http://localhost:8888/logout" method="post">
 
-                            <h1 class="h4 mb-4">Déconnexion</h1>
+                            <h1 class="h4 mb-4 text-uppercase font-weight-bold text-center">Déconnexion</h1>
 
                             <p>Vous êtes sur le point de quitter votre espace membre</p>
                                 

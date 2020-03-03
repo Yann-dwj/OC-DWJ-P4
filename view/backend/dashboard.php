@@ -1,7 +1,8 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Tableau de bord'; ?>
 <?php $metaDescription = ''; ?>
 
-<h1 class="text-center">Bienvenue sur votre tableau de bord</h1>
+<h1 class="font-weight-bold text-uppercase text-center">tableau de bord</h1>
 
 <!-- Section: Block Content -->
 <section class="container mt-5">
@@ -48,14 +49,17 @@
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionNewPost">
         <div class="card ">
-            <div class="card-header text-center" id="headingOne">
-                <h5 class="my-0">
-                    <i class="fas fa-pen-nib mr-2 text-left"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <p class="m-0">Nouvel Article <i class="fas fa-sort-down"></i></p>
-                    </button>
-                    
-                </h5>
+            <div class="card-header" id="headingOne">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 text-right">
+                        <i class="fas fa-pen-nib mr-2 text-left"></i>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <p class="m-0 font-weight-bold">Nouvel Article <i class="fas fa-sort-down"></i></p>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionNewPost">
                 <div class="card-body">
@@ -70,7 +74,7 @@
                         </div>
                         <div class="form-group shadow-textarea">
                             <label for="contentPost">Contenu :</label>
-                            <textarea id="mytextarea"class="form-control" id="" type="text" name="content" rows="5" placeholder=""></textarea>
+                            <textarea id="mytextarea"class="form-control" id="" type="text" name="content" rows="10" placeholder=""></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagePost">Image :</label>
@@ -80,7 +84,7 @@
                             </div>
                         </div>
                         <div class="form-group m-0 pt-2">
-                        <button class="btn btn-light font-weight-bold btn-block" type="submit" name="post">Valider</button>
+                        <button class="btn btn-light font-weight-bold btn-block text-white" type="submit" name="post">Valider</button>
                         </div>
                     </form>
                 </div>
@@ -94,13 +98,17 @@
         <!-- Table with panel -->
         <div class="card">
             <!--Card header-->
-            <div class="card-header text-center" id="headingTwo">
-                <h5 class="my-0">
-                    <i class="fas fa-list mr-2"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <p class="m-0">Liste Des Articles <i class="fas fa-sort-down"></i></p>
-                    </button>
-                </h5>
+            <div class="card-header" id="headingTwo">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 text-right">
+                        <i class="fas fa-list mr-2"></i>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <p class="m-0 font-weight-bold">Liste des Articles <i class="fas fa-sort-down"></i></p>
+                        </button>
+                    </div>
+                </div>
             </div>
             <!--/Card header-->
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionListPost">
@@ -129,7 +137,7 @@
                                     <a href="">Commentaires</a>
                                 </th> -->
                                 <th class="th-sm">
-                                    
+                                    <a href="">Voir/Editer/Supprimer</a>
                                 </th>
                             </tr>
                         </thead>
@@ -207,13 +215,17 @@ foreach ($vars['posts'] as $var['post'])
         <!-- Table with panel -->
         <div class="card">
             <!--Card header-->
-            <div class="card-header text-center" id="headingThree">
-                <h5 class="my-0">
-                    <i class="fas fa-comment-dots mr-2"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <p class="m-0">Commentaires Signalés <i class="fas fa-sort-down"></i></p>
-                    </button>
-                </h5>
+            <div class="card-header" id="headingThree">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 text-right">
+                        <i class="fas fa-comment-dots mr-2"></i>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <p class="m-0 font-weight-bold">Commentaires Signalés <i class="fas fa-sort-down"></i></p>
+                        </button>
+                    </div>
+                </div>
             </div>
             <!--/Card header-->
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionReportComment">
@@ -241,7 +253,7 @@ if ($vars['reportedComments'])
                                     <a href="">Publié le</a>
                                 </th>
                                 <th class="th-xs">
-                                    
+                                    <a href="">Voir/Valider/Supprimer</a>
                                 </th>
                             </tr>
                         </thead>
@@ -353,13 +365,17 @@ else
         <!-- Table with panel -->
         <div class="card">
             <!--Card header-->
-            <div class="card-header text-center" id="headingFour">
-                <h5 class="my-0">
-                    <i class="fas fa-user mr-2"></i>
-                    <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <p class="m-0">Utilisateurs <i class="fas fa-sort-down"></i></p>
-                    </button>
-                </h5>
+            <div class="card-header" id="headingFour">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 text-right">
+                        <i class="fas fa-user mr-2"></i>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <p class="m-0 font-weight-bold">Utilisateurs <i class="fas fa-sort-down"></i></p>
+                        </button>
+                    </div>
+                </div>
             </div>
             <!--/Card header-->
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionListUser">
@@ -385,7 +401,7 @@ else
                                     <a href="">Date d'inscription</a>
                                 </th>
                                 <th class="th-xs">
-                                    
+                                    <a href="">Supprimer</a>
                                 </th>
                             </tr>
                         </thead>

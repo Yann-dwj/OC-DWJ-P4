@@ -1,8 +1,9 @@
+<?php $css = 'style.css' ?>
 <?php $title = 'Blog'; ?>
 <?php $metaDescription = 'Retrouvez tous les épisodes de "Billet Simple pour l\'Alaska" et rejoignez John McKinley dans ces aventures palpitantes'; ?>
 
-<div class="container mt-5">
-    <h1 class="text-center">Tous les épisodes à découvrir</h1>
+<div id="blog" class="container">
+    <h1 class="h2 mt-5 py-4 text-uppercase font-weight-bold text-center">Tous les épisodes</h1>
     <!--Section: Content-->
     <section class="">
         <!-- Grid row -->
@@ -23,7 +24,7 @@ foreach ($vars['posts'] as $var['post'])
                             <!-- Title -->
                             <h5 class="black-text"><?= $var['post']->title(); ?></h5>
                             <!-- Text -->
-                            <div class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 255) . '...'; ?></div>
+                            <div class="card-title text-muted font-small mt-3 mb-2"><?= substr($var['post']->content(), 0, 205) . '...'; ?></div>
                         </div>
                         <div class="card-footer">
                             <div class="row black-text">
