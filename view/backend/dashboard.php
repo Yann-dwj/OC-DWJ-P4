@@ -63,7 +63,7 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionNewPost">
                 <div class="card-body">
-                    <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    <form class="form" action="/dashboard" method="POST" enctype="multipart/form-data">
                         <div class="form-group shadow-textarea">
                             <label for="titlePost">Titre :</label>
                             <input class="form-control" id="titlePost" type="text" name="title" placeholder="">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="form-group m-0 pt-2">
-                        <button class="btn btn-light font-weight-bold btn-block text-white" type="submit" name="post">Valider</button>
+                            <button class="btn btn-light font-weight-bold btn-block text-white" type="submit" name="post">Valider</button>
                         </div>
                     </form>
                 </div>

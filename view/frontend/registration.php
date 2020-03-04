@@ -2,13 +2,13 @@
 <?php $title = 'Inscription'; ?>
 <?php $metaDescription = 'Inscrivez-vous en tant que membre du blog de Jean Forteroche et accedez aux fonctionnalités du site'; ?>
 
-<div class="container-fluid pt-5">
+<div class="container-fluid py-5">
     <!--Section: Content-->
-    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <section class="text-center text-lg-left dark-grey-text">
         <!--Grid row-->
         <div class="row d-flex justify-content-center">
             <!--Grid column-->
-            <div class="col-md-6">
+            <div class="ccol-md-10 col-lg-5">
                 <!-- Material form login -->
                 <div class="card">
                     <!--Card content-->

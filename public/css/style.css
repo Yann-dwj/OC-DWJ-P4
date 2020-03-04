@@ -22,13 +22,13 @@ h1
 {
     letter-spacing: 5px;
 }
-
+/*
 #blog .card-body
 {
     height: 172px;
     overflow: hidden;
 }
-
+*/
 .btn-info, .btn-primary, .btn-light
 {
     background-color: #6e96b4 !important;

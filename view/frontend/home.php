@@ -4,10 +4,10 @@
 
 <section class="container-fluid" id="story">
     <div class="row">
-        <div class="col-lg-6 mb-5 text-center">
-            <img class="" src="../../public/images/kourosh-qaffari-RrhhzitYizg-unsplash.jpg" alt=""/>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5 text-center">
+            <img class="img-fluid" src="../../public/images/kourosh-qaffari-RrhhzitYizg-unsplash.jpg" alt=""/>
         </div>
-        <div class="col-lg-6 mb-5">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5">
             <h2 class="text-uppercase font-weight-bold">L'histoire</h2>
             <p>l'aventurier John McKinley prend un billet simple pour l'Alaska</p>
         </div>
@@ -15,7 +15,7 @@
 </section>
 
 <section class="container-fluid" id="latestPosts">
-    <div class="mx-5">
+    <div class="px-5">
         <div class="pt-5">
             <h2 class="text-uppercase font-weight-bold text-center">Derniers Épisodes</h2>
         </div>
@@ -47,20 +47,22 @@ foreach ($vars['latestPosts'] as $var['latestPost'])
 }
 ?>
         </div>
-        <div class="row pb-5 mt-2 pt-2 mx-5 px-5">
-            <a class="h4 mx-auto text-uppercase font-weight-bold text-center text-blue" href="/blog" > Voir tous les épisodes <i class="fas fa-long-arrow-alt-right ml-2"></i></a>
+        <div class="row pb-5 mt-2 pt-2">
+            <div class="col-md-12 text-center">
+                <a class="h4 mx-auto text-uppercase font-weight-bold text-blue" href="/blog" > Voir tous les épisodes <i class="fas fa-long-arrow-alt-right ml-2"></i></a>
+            </div>
         </div>
     </div>
 </section>
 
 <section class="container-fluid" id="author">
     <div class="row">
-        <div class="col-lg-6 my-5 px-5">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 my-5 px-5">
             <h2 class="px-5 text-uppercase font-weight-bold">L'auteur</h2>
             <p class="px-5">Jean Forteroche, ecrivain et </p>
         </div>
-        <div class="col-lg-6 my-5 text-center">
-            <img class="" src="../../public/images/steven-houston-d2lO9btumD4-unsplash.jpg" alt=""/>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 my-5 text-center">
+            <img class="img-fluid" src="../../public/images/steven-houston-d2lO9btumD4-unsplash.jpg" alt=""/>
         </div>
     </div>
 </section>

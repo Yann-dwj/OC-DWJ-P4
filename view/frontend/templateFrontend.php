@@ -133,13 +133,14 @@ if ($view == 'home')
                     <div class="row">
                     <!--Grid column-->
                         <div class="col-md-12 mb-4 white-text text-center">
-                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
-                            data-wow-delay="0.3s"><strong>Billet Simple pour l'Alaska</strong></h1>
+                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5">
+                                <strong>Billet Simple pour l'Alaska</strong>
+                            </h1>
                             <hr class="hr-light my-4">
-                            <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Le nouveau Roman <br />signé Jean Forteroche</strong></h5>
-                            <a class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#story">L'histoire</a>
-                            <a class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#latestPosts"><i class="fas fa-book-open fa-lg"></i></a>
-                            <a class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#author">A propos</a>
+                            <h5 class="text-uppercase mb-4 white-text"><strong>Le nouveau Roman <br />signé Jean Forteroche</strong></h5>
+                            <a id="storyLink" class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#story">L'histoire</a>
+                            <a id="latestPostLink" class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#latestPosts"><i class="fas fa-book-open fa-lg"></i></a>
+                            <a id="authorLink" class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#author">A propos</a>
                         </div>
                         <!--Grid column-->
                     </div>

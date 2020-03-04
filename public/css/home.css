@@ -75,3 +75,16 @@ h5
         height: 100vh;
     }
 }
+
+@media (max-width: 640px)
+{
+    h1
+    {
+        font-size: 2rem;
+    }
+
+    #storyLink, #latestPostLink, #authorLink
+    {
+        display: none;
+    }
+}
