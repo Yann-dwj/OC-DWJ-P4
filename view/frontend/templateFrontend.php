@@ -161,26 +161,6 @@ if ($view == 'home')
         <?= $content ?>
     </div>
 
-    <!-- <footer class="text-center font-small">
-        <div class="pt-4">
-            <a href="" target="_blank">
-                <i class="fab fa-facebook-f mr-3"></i>
-            </a>
-            <a href="" target="_blank">
-                <i class="fab fa-twitter mr-3"></i>
-            </a>
-            <a href="" target="_blank">
-                <i class="fab fa-youtube mr-3"></i>
-            </a>
-            <a href="" target="_blank">
-                <i class="fab fa-google-plus-g mr-3"></i>
-            </a>
-        </div>
-        <div>
-            <a class="navbar-brand waves-effect" href="/">JEAN FORTEROCHE</a>
-        </div>
-    </footer> -->
-
 	<!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- anchorScroll JS -->

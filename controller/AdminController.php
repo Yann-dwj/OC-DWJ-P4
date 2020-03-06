@@ -25,14 +25,10 @@ class AdminController extends Controller
 
             $comments = $commentManager->getAllComments();
             $numberComments = count($comments);
-            
-            // $commentsPost = $commentManager->getComments($_GET['id']);
-            // $numberCommentsPost = count($commentsPost);
 
             $userManager = new UserManager;
             $users = $userManager->getUsers();
             $numberUsers = count($users);
-
 
             $view = new ViewController;
             $view->renderAdmin('dashboard', 'templateBackend', [
@@ -41,7 +37,6 @@ class AdminController extends Controller
                 'reportedComments' => $reportedComments,
                 'numberReportedComments' => $numberReportedComments,
                 'numberComments' => $numberComments,
-                // 'numberCommentsPost' => $numberCommentsPost,
                 'users' => $users,
                 'numberUsers' => $numberUsers
             ]);

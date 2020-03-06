@@ -11,7 +11,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $query = $db->prepare('SELECT id, postId, postTitle, author, comment, DATE_FORMAT(commentDate, \'le %d/%m/%Y à %Hh%i\') AS commentDate, report FROM comments WHERE postId = ? ORDER BY commentDate DESC');
+        $query = $db->prepare('SELECT id, postId, postTitle, author, comment, DATE_FORMAT(commentDate, \'le %d/%m/%Y à %Hh%i\') AS commentDate, report FROM comments WHERE postId = ? ORDER BY id DESC');
         $query->execute([
             $postId
         ]);

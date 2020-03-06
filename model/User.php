@@ -40,7 +40,7 @@ class User
 
     public function pseudo()
     {
-        return $this->_pseudo;
+        return htmlspecialchars($this->_pseudo);
     }
 
     public function pass()
@@ -50,7 +50,7 @@ class User
 
     public function email()
     {
-        return $this->_email;
+        return htmlspecialchars($this->_email);
     }
 
     public function registrationDate()
