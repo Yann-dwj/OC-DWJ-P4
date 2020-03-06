@@ -80,7 +80,7 @@ class PostManager extends Manager
 
         $posts = [];
 
-        $query = $db->query('SELECT * FROM posts ORDER BY creationDate DESC LIMIT 0, 3');
+        $query = $db->query('SELECT * FROM posts ORDER BY id DESC LIMIT 0, 3');
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC))
         {
