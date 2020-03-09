@@ -66,11 +66,11 @@
                     <form class="form" action="/dashboard" method="POST" enctype="multipart/form-data">
                         <div class="form-group shadow-textarea">
                             <label for="titlePost">Titre :</label>
-                            <input class="form-control" id="titlePost" type="text" name="title" placeholder="">
+                            <input class="form-control" id="titlePost" type="text" name="title" placeholder="" required>
                         </div>
                         <div class="form-group shadow-textarea">
                             <label for="titlePost">Auteur :</label>
-                            <input class="form-control" id="titlePost" type="text" name="author" placeholder="">
+                            <input class="form-control" id="titlePost" type="text" name="author" placeholder="" required>
                         </div>
                         <div class="form-group shadow-textarea">
                             <label for="contentPost">Contenu :</label>
@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <label for="imagePost">Image :</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="imageUrl" id="imageUrl" aria-describedby="">
+                                <input type="file" class="custom-file-input" name="imageUrl" id="imageUrl" aria-describedby="" required>
                                 <label class="custom-file-label" for="imageUrl">Selectionner un fichier JPEG</label>
                             </div>
                         </div>

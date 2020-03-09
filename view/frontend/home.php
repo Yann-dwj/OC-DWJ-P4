@@ -4,12 +4,21 @@
 
 <section class="container-fluid" id="story">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5 text-center">
-            <img class="img-fluid" src="../../public/images/kourosh-qaffari-RrhhzitYizg-unsplash.jpg" alt=""/>
+        <div class="col-md-12">
+            <h2 class="text-center text-uppercase font-weight-bold">L'histoire</h2>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5">
-            <h2 class="text-uppercase font-weight-bold">L'histoire</h2>
-            <p>l'aventurier John McKinley prend un billet simple pour l'Alaska</p>
+    </div>
+    <div class="row align-items-center py-5">
+        <div class="col-md-6 mb-5 text-center">
+            <img class="img-fluid" src="../../public/images/kourosh-qaffari-RrhhzitYizg-unsplash.jpg" alt="livre ouvert devant un paysage sauvage"/>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="col-md-12 col-lg-10 text-justify">
+                <h5 class="mb-4">Lorem ipsum dolor sit amet</h5>
+                <p class="mb-4">Consectetur adipiscing elit. Sed vestibulum fermentum luctus. Nam aliquam purus leo, vitae posuere mi commodo aliquam. Nam elit felis, lacinia quis faucibus at, placerat sit amet enim. Integer purus enim, rutrum in fermentum nec, dignissim vel nulla. Ut nisi sapien, blandit eu purus non, porttitor rutrum lacus.</p>
+                <h5 class="mb-4">Nulla vel dolor nec elit</h5>
+                <p>Iaculis tincidunt sed ac metus. Mauris mattis efficitur enim. Ut eu massa turpis. In sodales elit id erat hendrerit, non sagittis mi egestas. Morbi sit amet tortor vulputate, aliquet lectus at, commodo mi. Vestibulum auctor tempus sagittis. Integer ut nisl elit. Donec sed imperdiet erat.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -57,11 +66,20 @@ foreach ($vars['latestPosts'] as $var['latestPost'])
 
 <section class="container-fluid" id="author">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 my-5 px-5">
-            <h2 class="px-5 text-uppercase font-weight-bold">L'auteur</h2>
-            <p class="px-5">Jean Forteroche, ecrivain et </p>
+        <div class="col-md-12">
+            <h2 class="pt-5 text-center text-uppercase font-weight-bold">L'auteur</h2>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 my-5 text-center">
+    </div>
+    <div class="row align-items-center pt-5">
+        <div class="col-md-6 mb-5">
+            <div class="col-md-12 col-lg-10 offset-lg-2 text-justify">
+                <h5 class="mb-4">Praesent eget enim</h5>
+                <p class="mb-4">Vivamus eleifend interdum turpis scelerisque semper. Integer sed quam at dolor consectetur lacinia. Aliquam posuere malesuada dui vitae pretium. Cras commodo cursus diam, et laoreet purus condimentum id. Praesent sed augue ipsum. Nam et ligula non mauris fringilla finibus. Phasellus facilisis augue in eros egestas cursus.</p>
+                <h5 class="mb-4">Quisque egestas mollis fringilla</h5>
+                <p>Aenean at auctor nunc. Vestibulum fermentum est lorem, at fermentum purus aliquet in. Duis blandit faucibus magna, eu pellentesque lacus viverra ac. Aenean tincidunt euismod nunc eu tempus. In ornare pulvinar sapien, a convallis velit. Duis quis tristique erat, ac mattis mauris.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 text-center">
             <img class="img-fluid" src="../../public/images/steven-houston-d2lO9btumD4-unsplash.jpg" alt=""/>
         </div>
     </div>

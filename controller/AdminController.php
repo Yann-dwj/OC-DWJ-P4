@@ -167,14 +167,14 @@ class AdminController extends Controller
                     $uploadOk = 0;
                 }
 
-                if (move_uploaded_file($_FILES["imageUrl"]["tmp_name"], $target_file))
-                {
-                    echo "The file ". basename( $_FILES["imageUrl"]["name"]). " has been uploaded.";
-                }
-                else
-                {
-                    echo "Sorry, there was an error uploading your file.";
-                }
+                // if (move_uploaded_file($_FILES["imageUrl"]["tmp_name"], $target_file))
+                // {
+                //     echo "The file ". basename( $_FILES["imageUrl"]["name"]). " has been uploaded.";
+                // }
+                // else
+                // {
+                //     echo "Sorry, there was an error uploading your file.";
+                // }
 
                 $post = new Post([
                     'id' => $_GET['id'],

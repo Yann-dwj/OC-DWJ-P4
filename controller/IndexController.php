@@ -4,7 +4,6 @@ namespace Controller;
 
 use \Model\Comment;
 use \Model\CommentManager;
-use \Model\Post;
 use \Model\PostManager;
 use \Model\User;
 use \Model\UserManager;
