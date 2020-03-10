@@ -15,6 +15,9 @@ class AdminController extends Controller
     {
         if ($this->isAdmin())
         {
+            $section = null;
+            $message = null;
+
             $postManager = new PostManager;
             $posts = $postManager->getPosts();
             $numberPosts = count($posts);
@@ -29,17 +32,6 @@ class AdminController extends Controller
             $userManager = new UserManager;
             $users = $userManager->getUsers();
             $numberUsers = count($users);
-
-            $view = new ViewController;
-            $view->renderAdmin('dashboard', 'templateBackend', [
-                'posts' => $posts,
-                'numberPosts' => $numberPosts,
-                'reportedComments' => $reportedComments,
-                'numberReportedComments' => $numberReportedComments,
-                'numberComments' => $numberComments,
-                'users' => $users,
-                'numberUsers' => $numberUsers
-            ]);
 
             // Ajout post
             if (isset($_POST) && isset($_POST['post']))
@@ -79,6 +71,9 @@ class AdminController extends Controller
                 ]);
     
                 $postManager->addPost($post);
+
+                $section = "Nouvel Article";
+                $message = 'L\'article a bien été ajouté';
             }
 
             // Supression post
@@ -91,6 +86,9 @@ class AdminController extends Controller
                     ]);
                     
                     $postManager->deletePost($post);
+
+                    $section = "Articles";
+                    $message = 'L\'article a bien été supprimé';
                 }
             }
 
@@ -104,6 +102,9 @@ class AdminController extends Controller
                     ]);
                     
                     $commentManager->deleteComment($comment);
+
+                    $section = "Commentaires Signalés";
+                    $message = 'Le commentaire a bien été supprimé';
                 }
 
                 if ($_GET['action'] == 'validate')
@@ -113,6 +114,9 @@ class AdminController extends Controller
                     ]);
                     
                     $commentManager->validateComment($comment);
+
+                    $section = "Commentaires Signalés";
+                    $message = 'Le commentaire a bien été validé';
                 }
             }
 
@@ -126,9 +130,24 @@ class AdminController extends Controller
                     ]);
                     
                     $userManager->deleteUser($user);
+
+                    $section = "Utilisateurs";
+                    $message = 'L\'utilisateur a bien été supprimé de l\'espace membre';
                 }
             }
 
+            $view = new ViewController;
+            $view->renderAdmin('dashboard', 'templateBackend', [
+                'posts' => $posts,
+                'numberPosts' => $numberPosts,
+                'reportedComments' => $reportedComments,
+                'numberReportedComments' => $numberReportedComments,
+                'numberComments' => $numberComments,
+                'users' => $users,
+                'numberUsers' => $numberUsers,
+                'section' => $section,
+                'message' => $message
+            ]);
         }
     }
 

@@ -6,6 +6,28 @@
 
 <!-- Section: Block Content -->
 <section class="container mt-5">
+<?php 
+if (isset($vars['message']))
+{
+?>
+    <div class="card">
+        <div class="card-header text-center">
+            <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">
+                <h1 class="m-0 font-weight-bold" style="font-size: 1em;"><?php echo $vars['section'] ;?></h1>
+            </button>
+        </div>
+        
+        <div class="card-body text-center">
+            <p class="text-dark font-weight-bold"><?php echo $vars['message']; ?><i class="fas fa-check pl-3 fa-lg"></i></p>
+            <a href="/dashboard">
+                <button class="btn btn-outline-primary btn-md btn-block">Quitter</button>
+            </a>
+        </div>
+<?php
+}
+else
+{
+?>
     <!--Grid row-->
     <div class="row">
         <!--Grid column-->
@@ -460,4 +482,7 @@ foreach ($vars['users'] as $var['user'])
         </div>
     <!-- Table with panel -->
     </div>
+<?php
+}
+?>
 </section>
