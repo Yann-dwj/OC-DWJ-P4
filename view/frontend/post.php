@@ -2,6 +2,7 @@
 <?php $title = $vars['post']->title(); ?>
 <?php $metaDescription = 'Découvrez l\'épisode ' . $vars['post']->title() .' du nouveau roman de Jean Forteroche, Billet Simple pour l\'Alaska'; ?>
 
+<!-- Section: Data Post -->
 <div class="masthead" style="height: 100vh; background-image:url('<?= $vars['post']->imageUrl(); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="mask rgba-black-light h-100">
         <div class="container h-100">
@@ -24,23 +25,16 @@ if ($vars['post']->updateDate())
         </div>
     </div>
 </div>
-
+<!-- Section: Post Content -->
 <div class="container mt-5">
-    <!--Section: Content-->
     <section class="dark-grey-text">
-        <!-- Grid row -->
         <div class="row">
-            <!-- Grid column -->
             <div class="col-md-12">
                 <?= $vars['post']->content(); ?>
             </div>
-            <!-- Grid column -->
         </div>
-        <!-- Grid row -->
     </section>
-    <!--Section: Content-->
-
-    <!--Section: Comments-->
+<!-- Section: Comments List -->
     <section class="dark-grey-text">
         <div class="accordion" id="accordionComment">
             <div class="card mt-5">
@@ -72,9 +66,6 @@ else
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionComment">
                     <div class="card-body pb-0">
-
-
-
 <?php
 if ($vars['comments'])
 {
@@ -93,12 +84,7 @@ foreach ($vars['comments'] as $var['comment'])
                                         <form method="POST" class="text-right">
                                             <input class="d-none" name="id" value="<?= $var['comment']->id(); ?>"/>
                                             <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#basicExampleModal-<?php echo $var['comment']->id();?>">signaler</button>
-                                            <!-- Modal -->
 <?php
-
-// TODO : Condition si le commentaire est un commantaire signalé !!!
-
-// if (empty($vars['reportedComment']))
 if ($var['comment']->report() == 0)
 {
 ?>
@@ -123,7 +109,6 @@ if ($var['comment']->report() == 0)
                                                 </div>
                                             </div>
 <?php
-// if ($var['comment']->report() == 1)
 }
 elseif ($var['comment']->report() == 1)
 {
@@ -155,9 +140,7 @@ elseif ($var['comment']->report() == 1)
                                         </form>
                                     </div>
                                 </div>
-                                <p>
-                                    <?= $var['comment']->comment(); ?>
-                                </p>
+                                <p><?= $var['comment']->comment(); ?></p>
                                 <hr>
                             </div>
                         </div>
@@ -174,11 +157,10 @@ if ($this->isConnect())
 {
 ?>
                     </div>
-                </div>             
+                </div>
+<!-- Section: Comment Form -->         
                 <div class="card-footer">
-                    <!-- Default form reply -->
                     <form method="POST">
-                        <!-- Comment -->
                         <div class="form-group">
                             <label for="replyFormComment">
                                 <i class="fa fa-user"></i>
@@ -197,7 +179,6 @@ if ($this->isConnect())
                             </button>
                         </div>
                     </form>
-                    <!-- Default form reply -->
                 </div>     
 <?php
 }
@@ -210,9 +191,7 @@ else
                     <div class="text-center mb-3">
                         <small>Ajoutez votre commentaire en vous connectant à <a class="font-weight-bold" href="http://localhost:8888/login">votre espace membre</a></small>
                     </div>
-                    <!-- Default form reply -->
                     <form method="POST">
-                        <!-- Comment -->
                         <div class="form-group">
                             <textarea class="form-control" name="comment" id="replyFormComment" rows="5" placeholder="Écrivez votre commentaire ici ..." disabled></textarea>
                         </div>
@@ -222,7 +201,6 @@ else
                             </button>
                         </div>
                     </form>
-                    <!-- Default form reply -->
                 </div>
 <?php
 }

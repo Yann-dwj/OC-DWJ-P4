@@ -10,16 +10,10 @@
     <meta name="description" content="<?= $metaDescription ?>" />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="" /> <!-- TO DO -->
+    <meta property="og:url" content="https://yannpedron.com/projet4" />
     <meta property="og:title" content="<?= $title ?> | Jean Forteroche" />
     <meta property="og:description" content="<?= $metaDescription ?>" />
-    <meta property="og:image" content="" /> <!-- TO DO -->
-    <!-- Twitter -->
-    <meta property="twitter:card" content="" /> <!-- TO DO -->
-    <meta property="twitter:url" content="" /> <!-- TO DO -->
-    <meta property="twitter:title" content="<?= $title ?> | Jean Forteroche" />
-    <meta property="twitter:description" content="<?= $metaDescription ?>" />
-    <meta property="twitter:image" content="" /> <!-- TO DO -->
+    <meta property="og:image" content="https://yannpedron.com/projet4/public/images/og-image-fb" />
     <!-- Favicon -->
     <link rel="icon" href="" /> <!-- TO DO -->
     <!-- Frameworks -->
@@ -33,25 +27,16 @@
 
 <body>
     <header>
-        <!-- Navbar -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
+                <a class="navbar-brand waves-effect" href="/">JEAN FORTEROCHE</a>
 
-                <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="/">
-                    JEAN FORTEROCHE
-                </a>
-
-                <!-- Collapse -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                         <a class="nav-link waves-effect" href="/">Accueil</a>
@@ -73,8 +58,6 @@ if ($this->isAdmin())
 }
 ?>
                     </ul>
-            
-                    <!-- Right -->
 <?php 
 if ($this->isConnect())
 {
@@ -118,20 +101,14 @@ else
                 </div>
             </div>
         </nav>
-    <!-- Navbar -->
-
 <?php 
 if ($view == 'home')
 {
 ?>
-        <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('../../public/images/josh-reeder-esparza-JACEkXaAay0-unsplash.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-            <!-- Mask & flexbox options-->
+        <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('../../public/images/home.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
             <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-                <!-- Content -->
                 <div class="container">
-                    <!--Grid row-->
                     <div class="row">
-                    <!--Grid column-->
                         <div class="col-md-12 mb-4 white-text text-center">
                             <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5">
                                 <strong>Billet Simple pour l'Alaska</strong>
@@ -142,19 +119,13 @@ if ($view == 'home')
                             <a id="latestPostLink" class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#latestPosts"><i class="fas fa-book-open fa-lg"></i></a>
                             <a id="authorLink" class="btn btn-outline-white anchor-scroll" data-class-to="body" data-on-scroll="blur-effect" href="#author">A propos</a>
                         </div>
-                        <!--Grid column-->
                     </div>
-                    <!--Grid row-->
                 </div>
-                <!-- Content -->
             </div>
-            <!-- Mask & flexbox options-->
         </div>
-        <!-- Full Page Intro -->
 <?php
 }
 ?>
-
     </header>
 
     <div class="main">

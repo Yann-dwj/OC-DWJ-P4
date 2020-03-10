@@ -10,18 +10,12 @@
     <meta name="description" content="<?= $metaDescription ?>" />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="" /> <!-- TO DO -->
+    <meta property="og:url" content="https://yannpedron.com/projet4" />
     <meta property="og:title" content="<?= $title ?> | Jean Forteroche" />
     <meta property="og:description" content="<?= $metaDescription ?>" />
-    <meta property="og:image" content="" /> <!-- TO DO -->
-    <!-- Twitter -->
-    <meta property="twitter:card" content="" /> <!-- TO DO -->
-    <meta property="twitter:url" content="" /> <!-- TO DO -->
-    <meta property="twitter:title" content="<?= $title ?> | Jean Forteroche" />
-    <meta property="twitter:description" content="<?= $metaDescription ?>" />
-    <meta property="twitter:image" content="" /> <!-- TO DO -->
+    <meta property="og:image" content="https://yannpedron.com/projet4/public/images/og-image-fb" />
     <!-- Favicon -->
-    <link rel="icon" href="" /> <!-- TO DO -->
+    <link rel="icon" href="../../public/images/jf.ico" />
     <!-- Frameworks -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -42,48 +36,37 @@
 
 <body>
     <header>
-        <!-- Navbar -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
             <div class="container">
+                <a class="navbar-brand waves-effect" href="/">JEAN FORTEROCHE</a>
 
-                <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="http://localhost:8888/">
-                    JEAN FORTEROCHE
-                </a>
-
-                <!-- Collapse -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link waves-effect" href="http://localhost:8888/">Accueil</a>
+                        <a class="nav-link waves-effect" href="/">Accueil</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link waves-effect" href="http://localhost:8888/blog">Episodes</a>
+                        <a class="nav-link waves-effect" href="/blog">Episodes</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link waves-effect" href="http://localhost:8888/contact">Contact</a>
+                        <a class="nav-link waves-effect" href="/contact">Contact</a>
                         </li>
 <?php 
 if ($this->isAdmin())
 {
 ?>
                         <li class="nav-item">
-                        <a class="nav-link waves-effect" href="http://localhost:8888/dashboard">Administration</a>
+                        <a class="nav-link waves-effect" href="/dashboard">Administration</a>
                         </li>
 <?php
 }
 ?>
                     </ul>
-            
-                    <!-- Right -->
 <?php 
 if ($this->isConnect())
 {
@@ -95,7 +78,7 @@ if ($this->isConnect())
                         </li>
                         <li class="nav-item mr-2">|</li>
                         <li class="nav-item mr-2">
-                            <a href="http://localhost:8888/logout">
+                            <a href="/logout">
                                 <span class="mr-1">déconnexion</span>
                                 <i class="fa fa-sign-out"></i>
                             </a>
@@ -107,14 +90,14 @@ else{
 ?>
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item mr-2">
-                            <a href="http://localhost:8888/login">
+                            <a href="/login">
                                 <i class="fa fa-user"></i>
                                 <span class="ml-2">connexion</span>
                             </a>
                         </li>
                         <li class="nav-item mr-2">|</li>
                         <li class="nav-item mr-2">
-                            <a href="http://localhost:8888/registration">
+                            <a href="/registration">
                                 <span class="mr-1">inscription</span>
                                 <i class="fa fa-sign-in"></i>
                             </a>
@@ -126,15 +109,11 @@ else{
                 </div>
             </div>
         </nav>
-    <!-- Navbar -->
     </header>
+
     <div style="margin-top: 100px;">
         <?= $content ?>
     </div>
-
-    <footer>
-
-    </footer>
 
 	<!-- JQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -2,6 +2,7 @@
 <?php $title = 'Accueil'; ?>
 <?php $metaDescription = 'Billet Simple pour l\'Alaska, le nouveau roman de Jean Forteroche à découvrir en ligne'; ?>
 
+<!-- Section: Story -->
 <section class="container-fluid" id="story">
     <div class="row">
         <div class="col-md-12">
@@ -10,7 +11,7 @@
     </div>
     <div class="row align-items-center py-5">
         <div class="col-md-6 mb-5 text-center">
-            <img class="img-fluid" src="../../public/images/kourosh-qaffari-RrhhzitYizg-unsplash.jpg" alt="livre ouvert devant un paysage sauvage"/>
+            <img class="img-fluid" src="../../public/images/story.jpg" alt="livre ouvert devant un paysage sauvage"/>
         </div>
         <div class="col-md-6 mb-5">
             <div class="col-md-12 col-lg-10 text-justify">
@@ -22,7 +23,7 @@
         </div>
     </div>
 </section>
-
+<!-- Section: Latest Posts -->
 <section class="container-fluid" id="latestPosts">
     <div class="px-5">
         <div class="pt-5">
@@ -33,25 +34,17 @@
 foreach ($vars['latestPosts'] as $var['latestPost'])
 {
 ?>
-            <!-- Grid column -->
             <div class="col-lg-4 col-md-6 mb-5">
                 <a href="post?id=<?= $var['latestPost']->id(); ?>">
-                    <!-- Card -->
                     <div class="card hoverable">
-                        <!-- Card image -->
                         <img class="card-img-top" src="<?= $var['latestPost']->imageUrl(); ?>" alt="Card image cap">
-                        <!-- Card content -->
                         <div class="card-body text-center">
-                            <!-- Title -->
                             <h5 class="text-muted text-capitalize font-small">Episode <?= $var['latestPost']->id(); ?></h5>
-                            <!-- Text -->
                             <p class="h4 font-weight-bold text-blue mb-2"><?= $var['latestPost']->title(); ?></p>
                         </div>
                     </div>
-                    <!-- Card -->
                 </a>
             </div>
-            <!-- Grid column -->
 <?php
 }
 ?>
@@ -63,7 +56,7 @@ foreach ($vars['latestPosts'] as $var['latestPost'])
         </div>
     </div>
 </section>
-
+<!-- Section: Author -->
 <section class="container-fluid" id="author">
     <div class="row">
         <div class="col-md-12">
@@ -80,7 +73,7 @@ foreach ($vars['latestPosts'] as $var['latestPost'])
             </div>
         </div>
         <div class="col-md-6 mb-5 text-center">
-            <img class="img-fluid" src="../../public/images/steven-houston-d2lO9btumD4-unsplash.jpg" alt=""/>
+            <img class="img-fluid" src="../../public/images/author.jpg" alt="l'auteur en séance d'écriture"/>
         </div>
     </div>
 </section>

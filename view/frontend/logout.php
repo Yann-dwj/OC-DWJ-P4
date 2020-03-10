@@ -3,26 +3,19 @@
 <?php $metaDescription = 'Déconnectez-vous de votre espace membre entre deux visites sur le Blog, Billet Simple pour l\'Alaska'; ?>
 
 <div class="container-fluid pt-5">
-    <!--Section: Content-->
     <section class="text-center text-lg-left dark-grey-text">
-        <!--Grid row-->
         <div class="row d-flex justify-content-center">
-            <!--Grid column-->
             <div class="col-md-10 col-lg-5">
-                <!-- Material form login -->
                 <div class="card">
-                    <!--Card content-->
                     <div class="card-body">
-                        <!-- Default form register -->
                         <form class="text-center" action="http://localhost:8888/logout" method="post">
 
                             <h1 class="h4 mb-4 text-uppercase font-weight-bold text-center">Déconnexion</h1>
 
                             <p>Vous êtes sur le point de quitter votre espace membre</p>
-                                
+
                             <p>Êtes vous sur de vouloir poursuivre <span class="text-primary"><?php $_SESSION['pseudo'] ?></span> ?</p>
                             
-                            <!-- Sign up button -->
                             <button class="btn btn-info my-4 btn-block" type="submit" name="submit">Confirmer</button>
 
                             <hr>
@@ -34,15 +27,9 @@
                             </p>
                             
                         </form>
-                        <!-- Default form register -->
                     </div>
-                    <!--Card content-->
                 </div>
-                <!-- Material form login -->
             </div>
-            <!--Grid column-->
         </div>
-        <!--Grid row-->
     </section>
-    <!--Section: Content-->
 </div>

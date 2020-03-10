@@ -1,12 +1,14 @@
 <?php $css = 'style.css' ?>
 <?php $title = 'Modifier ' . $vars['post']->title(); ?>
-<?php $metaDescription = ''; ?>
+<?php $metaDescription = 'Editez un article de blog'; ?>
 
+<!-- Section: Block Content -->
 <section class="container dark-grey-text my-4">
 <?php 
 if (isset($vars['message']))
 {
 ?>
+<!-- Section: Message -->
     <div class="card">
         <div class="card-header text-center">
             <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">
@@ -25,6 +27,7 @@ if (isset($vars['message']))
 else
 {
 ?>
+<!-- Section: Edit Post Form -->
     <div class="card">
         <div class="card-header text-center">
             <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">

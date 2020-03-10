@@ -1,6 +1,6 @@
 <?php $css = 'style.css' ?>
 <?php $title = 'Tableau de bord'; ?>
-<?php $metaDescription = ''; ?>
+<?php $metaDescription = 'Accedez à la page d\'administration du blog'; ?>
 
 <h1 class="font-weight-bold text-uppercase text-center">tableau de bord</h1>
 
@@ -10,6 +10,7 @@
 if (isset($vars['message']))
 {
 ?>
+<!-- Section: Message -->
     <div class="card">
         <div class="card-header text-center">
             <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">
@@ -28,9 +29,8 @@ if (isset($vars['message']))
 else
 {
 ?>
-    <!--Grid row-->
+<!-- Section: Data Information -->
     <div class="row">
-        <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="media white z-depth-1 rounded">
                 <i class="fas fa-file-alt fa-2x blue z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
@@ -40,8 +40,7 @@ else
                 </div>
             </div>
         </div>
-        <!--Grid column-->
-        <!--Grid column-->
+
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="media white z-depth-1 rounded">
                 <i class="fas fa-comments fa-2x deep-purple z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
@@ -51,8 +50,7 @@ else
                 </div>
             </div>
         </div>
-        <!--Grid column-->
-        <!--Grid column-->
+
         <div class="col-lg-4 col-md-12 mb-4">
             <div class="media white z-depth-1 rounded">
                 <i class="fas fa-users fa-2x pink z-depth-1 p-4 rounded-left text-white mr-3 text-center" style="width: 88px;"></i>
@@ -62,12 +60,9 @@ else
                 </div>
             </div>
         </div>
-        <!--Grid column-->
     </div>
-    <!--Grid row-->
 </section>
-<!-- Section: Block Content -->
-
+<!-- Section: New Post Form -->
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionNewPost">
         <div class="card ">
@@ -114,12 +109,10 @@ else
         </div>
     </div>
 </section>
-
+<!-- Section: Posts List -->
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionListPost">
-        <!-- Table with panel -->
         <div class="card">
-            <!--Card header-->
             <div class="card-header" id="headingTwo">
                 <div class="row">
                     <div class="col-md-5 col-sm-4 text-right">
@@ -132,43 +125,23 @@ else
                     </div>
                 </div>
             </div>
-            <!--/Card header-->
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionListPost">
                 <div class="table-responsive">
-                    <!--Table-->
                     <table class="table table-hover mb-0">
-                        <!--Table head-->
                         <thead>
                             <tr>
-                                <th>
-
-                                </th>
-                                <th class="th-xs">
-                                    <a>#</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Titre</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Auteur</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Date de création</a>
-                                </th>
-                                <!-- <th class="th-lg">
-                                    <a href="">Commentaires</a>
-                                </th> -->
-                                <th class="th-sm">
-                                    <a href="">Voir/Editer/Supprimer</a>
-                                </th>
+                                <th></th>
+                                <th class="th-xs">#</th>
+                                <th class="th-lg">Titre</th>
+                                <th class="th-lg">Auteur</th>
+                                <th class="th-lg">Date de création</th>
+                                <th class="th-sm">Voir/Editer/Supprimer</th>
                             </tr>
                         </thead>
-                        <!--Table head-->
 <?php
 foreach ($vars['posts'] as $var['post'])
 {
 ?>
-                        <!--Table body-->
                         <tbody>
                             <tr>
                                 <th scope="row">
@@ -177,7 +150,6 @@ foreach ($vars['posts'] as $var['post'])
                                 <td><?= $var['post']->title(); ?></td>
                                 <td><?= $var['post']->author(); ?></td>
                                 <td><?= $var['post']->creationDate(); ?></td>
-                                <!-- <td><?= $vars['numberCommentsPost']; ?></td> -->
                                 <td>
                                     <a href="post?id=<?= $var['post']->id(); ?>" target="_blank">
                                         <button type="button" class="btn btn-outline-dark btn-rounded btn-sm px-2">
@@ -219,24 +191,19 @@ foreach ($vars['posts'] as $var['post'])
                                 </td>
                             </tr>
                         </tbody>
-                        <!--Table body-->
 <?php
 }
 ?>
                     </table>
-                    <!--Table-->
                 </div>
             </div>
         </div>
-    <!-- Table with panel -->
     </div>
 </section>
-
+<!-- Section: Report Comments -->
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionReportComment">
-        <!-- Table with panel -->
         <div class="card">
-            <!--Card header-->
             <div class="card-header" id="headingThree">
                 <div class="row">
                     <div class="col-md-5 col-sm-4 text-right">
@@ -249,42 +216,27 @@ foreach ($vars['posts'] as $var['post'])
                     </div>
                 </div>
             </div>
-            <!--/Card header-->
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionReportComment">
 <?php
 if ($vars['reportedComments'])
 {
 ?>
                 <div class="table-responsive">
-                    <!--Table-->
                     <table class="table table-hover mb-0">
-                        <!--Table head-->
                         <thead>
                             <tr>
                                 <th></th>
-                                <th class="th-xs">
-                                    <a>Article</a>
-                                </th>
-                                <th class="th-md">
-                                    <a href="">Auteur</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Commentaire</a>
-                                </th>
-                                <th class="th-md">
-                                    <a href="">Publié le</a>
-                                </th>
-                                <th class="th-xs">
-                                    <a href="">Voir/Valider/Supprimer</a>
-                                </th>
+                                <th class="th-xs">Article</th>
+                                <th class="th-md">Auteur</th>
+                                <th class="th-lg">Commentaire</th>
+                                <th class="th-md">Publié le</th>
+                                <th class="th-xs">Voir/Valider/Supprimer</th>
                             </tr>
                         </thead>
-                        <!--Table head-->
 <?php
 foreach ($vars['reportedComments'] as $var['reportedComment'])
 {
 ?>
-                        <!--Table body-->
                         <tbody>
                             <tr>
                                 <th scope="row"></th>
@@ -359,12 +311,10 @@ foreach ($vars['reportedComments'] as $var['reportedComment'])
                                 </td>
                             </tr>
                         </tbody>
-                        <!--Table body-->
 <?php
 }
 ?>
                     </table>
-                    <!--Table-->
                 </div>
 <?php
 }
@@ -375,18 +325,14 @@ else
 <?php
 }
 ?>
-
             </div>
         </div>
-    <!-- Table with panel -->
     </div>
 </section>
-
+<!-- Section: Users List -->
 <section class="container dark-grey-text my-4">
     <div class="accordion" id="accordionListUser">
-        <!-- Table with panel -->
         <div class="card">
-            <!--Card header-->
             <div class="card-header" id="headingFour">
                 <div class="row">
                     <div class="col-md-5 col-sm-4 text-right">
@@ -399,40 +345,23 @@ else
                     </div>
                 </div>
             </div>
-            <!--/Card header-->
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionListUser">
                 <div class="table-responsive">
-                    <!--Table-->
                     <table class="table table-hover mb-0">
-                        <!--Table head-->
                         <thead>
                             <tr>
-                                <th>
-
-                                </th>
-                                <th class="th-xs">
-                                    <a># Id</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Pseudo</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">E-mail</a>
-                                </th>
-                                <th class="th-lg">
-                                    <a href="">Date d'inscription</a>
-                                </th>
-                                <th class="th-xs">
-                                    <a href="">Supprimer</a>
-                                </th>
+                                <th></th>
+                                <th class="th-xs"># Id</th>
+                                <th class="th-lg">Pseudo</th>
+                                <th class="th-lg">E-mail</th>
+                                <th class="th-lg">Date d'inscription</th>
+                                <th class="th-xs">Supprimer</th>
                             </tr>
                         </thead>
-                        <!--Table head-->
 <?php
 foreach ($vars['users'] as $var['user'])
 {
 ?>
-                        <!--Table body-->
                         <tbody>
                             <tr>
                                 <th scope="row">
@@ -471,16 +400,13 @@ foreach ($vars['users'] as $var['user'])
                                 </td>
                             </tr>
                         </tbody>
-                        <!--Table body-->
 <?php
 }
 ?>
                     </table>
-                    <!--Table-->
                 </div>
             </div>
         </div>
-    <!-- Table with panel -->
     </div>
 <?php
 }
