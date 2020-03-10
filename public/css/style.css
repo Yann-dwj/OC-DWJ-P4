@@ -13,7 +13,7 @@ body
     background-color: #dee2e6 !important;
 }
 
-h1, .fas, .text-blue
+h1, .fas, .text-blue,.btn-outline-primary
 {
     color: #6e96b4;
 }
@@ -22,17 +22,23 @@ h1
 {
     letter-spacing: 5px;
 }
-/*
-#blog .card-body
-{
-    height: 172px;
-    overflow: hidden;
-}
-*/
+
 .btn-info, .btn-primary, .btn-light
 {
     background-color: #6e96b4 !important;
 
+}
+
+.btn-outline-primary
+{
+    color: #6e96b4 !important;
+    border: 2px solid #6e96b4 !important;
+}
+
+.btn-outline-primary:hover
+{
+    color: #6c757d !important;
+    border: 2px solid #6c757d !important;
 }
 
 @media (max-width: 600px)

@@ -3,7 +3,29 @@
 <?php $metaDescription = ''; ?>
 
 <section class="container dark-grey-text my-4">
-    <div class="card ">
+<?php 
+if (isset($vars['message']))
+{
+?>
+    <div class="card">
+        <div class="card-header text-center">
+            <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">
+                <h1 class="m-0 font-weight-bold" style="font-size: 1em;">Modification de l'article n° <?= $vars['post']->id(); ?></h1>
+            </button>
+        </div>
+        
+        <div class="card-body text-center">
+            <p class="text-dark font-weight-bold"><?php echo $vars['message']; ?><i class="fas fa-check pl-3 fa-lg"></i></p>
+            <a href="/dashboard">
+                <button class="btn btn-outline-primary btn-md btn-block">Quitter</button>
+            </a>
+        </div>
+<?php
+}
+else
+{
+?>
+    <div class="card">
         <div class="card-header text-center">
             <button class="btn btn-link m-0 p-0 font-weight-bold dark-grey-text" type="button">
                 <h1 class="m-0 font-weight-bold" style="font-size: 1em;">Modification de l'article n° <?= $vars['post']->id(); ?></h1>
@@ -22,7 +44,7 @@
                 </div>
                 <div class="form-group shadow-textarea">
                     <label for="contentPost">Contenu :</label>
-                    <textarea id="mytextarea"class="form-control" id="" type="text" name="content" rows="5" placeholder=""><?= $vars['post']->content(); ?></textarea>
+                    <textarea id="mytextarea"class="form-control" id="" type="text" name="content" rows="10" placeholder=""><?= $vars['post']->content(); ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="imagePost">Image :</label>
@@ -61,4 +83,7 @@
             </form>
         </div>
     </div>
+<?php
+}
+?>
 </section>

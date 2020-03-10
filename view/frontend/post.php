@@ -14,7 +14,7 @@
 if ($vars['post']->updateDate())
 {
 ?>
-                        modifié <?= $vars['post']->creationDate(); ?>
+                        <?= $vars['post']->updateDate(); ?>
 <?php
 }
 ?>

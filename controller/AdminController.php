@@ -41,32 +41,7 @@ class AdminController extends Controller
                 'numberUsers' => $numberUsers
             ]);
 
-            // Controle commentaires signalés
-            if (!empty($_GET['comment']) && !empty($_GET['action']))
-            {
-                if ($_GET['action'] == 'delete')
-                {
-                    $comment = new Comment([
-                        'id' => $_GET['comment']
-                    ]);
-                    
-                    $commentManager->deleteComment($comment);
-                }
-
-                if ($_GET['action'] == 'validate')
-                {
-                    $comment = new Comment([
-                        'id' => $_GET['comment']
-                    ]);
-                    
-                    $commentManager->validateComment($comment);
-                }
-
-                // header('Location: /dashboard', true, 301);
-                // exit;
-            }
-
-            // Ajout d'un post
+            // Ajout post
             if (isset($_POST) && isset($_POST['post']))
             {
                 $target_dir = "public/images/";
@@ -106,7 +81,7 @@ class AdminController extends Controller
                 $postManager->addPost($post);
             }
 
-            // Controle articles
+            // Supression post
             if (!empty($_GET['post']) && !empty($_GET['action']))
             {
                 if ($_GET['action'] == 'delete')
@@ -119,7 +94,29 @@ class AdminController extends Controller
                 }
             }
 
-            // Controle utilisateur
+            // Supression ou validation commentaires signalés
+            if (!empty($_GET['comment']) && !empty($_GET['action']))
+            {
+                if ($_GET['action'] == 'delete')
+                {
+                    $comment = new Comment([
+                        'id' => $_GET['comment']
+                    ]);
+                    
+                    $commentManager->deleteComment($comment);
+                }
+
+                if ($_GET['action'] == 'validate')
+                {
+                    $comment = new Comment([
+                        'id' => $_GET['comment']
+                    ]);
+                    
+                    $commentManager->validateComment($comment);
+                }
+            }
+
+            // Supression utilisateur
             if (!empty($_GET['user']) && !empty($_GET['action']))
             {
                 if ($_GET['action'] == 'delete')
@@ -139,13 +136,10 @@ class AdminController extends Controller
     {
         if ($this->isAdmin())
         {
+            $message = null;
+
             $postManager = new PostManager;
             $post = $postManager->getPost($_GET['id']);
-
-            $view = new ViewController;
-            $view->renderAdmin('editPost', 'templateBackend', [
-                'post' => $post
-            ]);
     
             if (isset($_POST) && isset($_POST['edit']))
             {
@@ -167,15 +161,6 @@ class AdminController extends Controller
                     $uploadOk = 0;
                 }
 
-                // if (move_uploaded_file($_FILES["imageUrl"]["tmp_name"], $target_file))
-                // {
-                //     echo "The file ". basename( $_FILES["imageUrl"]["name"]). " has been uploaded.";
-                // }
-                // else
-                // {
-                //     echo "Sorry, there was an error uploading your file.";
-                // }
-
                 $post = new Post([
                     'id' => $_GET['id'],
                     'title' => $_POST['title'],
@@ -186,9 +171,14 @@ class AdminController extends Controller
     
                 $postManager->updatePost($post);
 
-                header('Location: /dashboard');
-                exit;
+                $message = 'L\'article à été modifié avec success';
             }
+
+            $view = new ViewController;
+            $view->renderAdmin('editPost', 'templateBackend', [
+                'post' => $post,
+                'message' => $message
+            ]);
         }
     }
 }
