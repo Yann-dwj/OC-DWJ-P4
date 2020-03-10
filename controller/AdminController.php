@@ -171,7 +171,7 @@ class AdminController extends Controller
     
                 $postManager->updatePost($post);
 
-                $message = 'L\'article à été modifié avec success';
+                $message = 'L\'article a été modifié avec succès';
             }
 
             $view = new ViewController;
