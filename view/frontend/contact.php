@@ -4,7 +4,7 @@
 
 <div class="container-fluid pt-3">
     <section class="" 
-    style="background-image: url('http://localhost:8888/public/images/rana-sawalha-W_-6PWGbYaU-unsplash.jpg'); background-size: cover; background-position: center center;">
+    style="background-image: url('http://localhost:8888/public/images/contact.jpg'); background-size: cover; background-position: center center;">
         <div class="rgba-black-strong rounded px-md-5 py-md-3 px-lg-5 py-lg-3">
             <form class="mx-lg-5" action="">
                 <div class="row">
