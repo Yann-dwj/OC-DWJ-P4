@@ -15,7 +15,7 @@
     <meta property="og:description" content="<?= $metaDescription ?>" />
     <meta property="og:image" content="https://yannpedron.com/projet4/public/images/og-image-fb" />
     <!-- Favicon -->
-    <link rel="icon" href="" /> <!-- TO DO -->
+    <link rel="icon" href="../../public/images/jf.ico" />
     <!-- Frameworks -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
